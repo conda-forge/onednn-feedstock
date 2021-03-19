@@ -14,7 +14,7 @@ source:
     - 1009.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
