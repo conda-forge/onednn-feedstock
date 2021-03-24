@@ -84,3 +84,4 @@ extra:
   feedstock-name: {{ name|lower }}
   recipe-maintainers:
     - xhochy
+    - igorsafo
