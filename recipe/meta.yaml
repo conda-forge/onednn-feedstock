@@ -1,5 +1,5 @@
 {% set name = "oneDNN" %}
-{% set version = "2.1.2" %}
+{% set version = "2.2" %}
 # TODO: Put this in conda_build_config.yaml once we support multiple variants
 {% set dnnl_cpu_runtime = "tbb" %}
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: cca53231ec99878dc7ef3cf4984525df4691b8174e703b40dd530c50531ecea0
+  sha256: 4d655c0751ee6439584ef5e3d465953fe0c2f4ee2700bc02699bdc1d1572af0d
   patches:
     - 1009.patch
 
@@ -19,7 +19,7 @@ build:
 outputs:
   - name: {{ name|lower }}
     script: build-onednn.sh  # [not win]
-    script: bld-onednn.bat   # [win]
+    script: bld-onednn.bat  # [win]
     version: {{ version }}
     build:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
@@ -42,7 +42,7 @@ outputs:
       license_file:
         - THIRD-PARTY-PROGRAMS
         - LICENSE
-      summary: "oneAPI Deep Neural Network Library (oneDNN)"
+      summary: oneAPI Deep Neural Network Library (oneDNN)
     test:
       commands:
         - test -f ${PREFIX}/lib/libdnnl${SHLIB_EXT}  # [unix]
@@ -67,7 +67,7 @@ outputs:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
       license_file: LICENSE
-      summary: "oneAPI Deep Neural Network Library (oneDNN)"
+      summary: oneAPI Deep Neural Network Library (oneDNN)
     test:
       commands:
         - exit 0
@@ -76,9 +76,9 @@ about:
   home: https://github.com/oneapi-src/oneDNN
   license: Apache-2.0
   license_file:
-   - LICENSE
-   - THIRD-PARTY-PROGRAMS
-  summary: "oneAPI Deep Neural Network Library (oneDNN)"
+    - LICENSE
+    - THIRD-PARTY-PROGRAMS
+  summary: oneAPI Deep Neural Network Library (oneDNN)
 
 extra:
   feedstock-name: {{ name|lower }}
