@@ -14,13 +14,6 @@ Current build status
 
 
 <table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://travis-ci.com/conda-forge/onednn-feedstock">
-        <img alt="macOS" src="https://img.shields.io/travis/com/conda-forge/onednn-feedstock/master.svg?label=macOS">
-      </a>
-    </td>
-  </tr><tr>
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/onednn-feedstock">
@@ -105,6 +98,7 @@ Installing `onednn` from the `conda-forge` channel can be achieved by adding `co
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-tbb` can be installed with:
