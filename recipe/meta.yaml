@@ -1,5 +1,5 @@
 {% set name = "oneDNN" %}
-{% set version = "2.2" %}
+{% set version = "2.2.1" %}
 # TODO: Put this in conda_build_config.yaml once we support multiple variants
 {% set dnnl_cpu_runtime = "tbb" %}
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 4d655c0751ee6439584ef5e3d465953fe0c2f4ee2700bc02699bdc1d1572af0d
+  sha256: 3faf3b7811dd37835169a9d5c57f17fd591f062029851186f9b11db117b9d1d9
   patches:
     - 1009.patch
 
