@@ -1,7 +1,5 @@
 {% set name = "oneDNN" %}
 {% set version = "2.2.2" %}
-# TODO: Put this in conda_build_config.yaml once we support multiple variants
-{% set dnnl_cpu_runtime = "tbb" %}
 
 package:
   name: {{ name|lower }}-split
@@ -14,7 +12,7 @@ source:
     - 1009.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -25,7 +23,8 @@ outputs:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      # TODO: Add track_features once we support more than a single variant
+      track_features:
+        {{ "- onednn-" + dnnl_cpu_runtime if dnnl_cpu_runtime != "omp" else "" }}
     requirements:
       build:
         - cmake
