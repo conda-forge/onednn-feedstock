@@ -23,8 +23,10 @@ outputs:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
+      {% if dnnl_cpu_runtime != "omp" %}
       track_features:
-        {{ "- onednn-" + dnnl_cpu_runtime if dnnl_cpu_runtime != "omp" else "" }}
+        - onednn-{{ dnnl_cpu_runtime }}
+      {% endif %}
     requirements:
       build:
         - cmake
