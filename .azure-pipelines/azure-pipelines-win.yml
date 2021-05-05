@@ -8,11 +8,8 @@ jobs:
     vmImage: vs2017-win2016
   strategy:
     matrix:
-      win_64_dnnl_cpu_runtimeomp:
-        CONFIG: win_64_dnnl_cpu_runtimeomp
-        UPLOAD_PACKAGES: 'True'
-      win_64_dnnl_cpu_runtimetbb:
-        CONFIG: win_64_dnnl_cpu_runtimetbb
+      win_64_:
+        CONFIG: win_64_
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
