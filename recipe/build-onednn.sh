@@ -6,7 +6,6 @@ mkdir build
 pushd build
 if [[ "${dnnl_cpu_runtime}" == "tbb" ]]; then
   export TBBROOT=${PREFIX}
-  export LDFLAGS="${LDFLAGS} -ltbb"
   DNNL_CPU_RUNTIME="TBB"
 elif [[ "${dnnl_cpu_runtime}" == "omp" ]]; then
   DNNL_CPU_RUNTIME="OMP"
