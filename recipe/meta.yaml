@@ -35,8 +35,8 @@ outputs:
         - {{ compiler('cxx') }}
         - llvm-openmp  # [osx]
       host:
-        - tbb
-        - tbb-devel
+        - tbb        # [dnnl_cpu_runtime == "tbb"]
+        - tbb-devel  # [dnnl_cpu_runtime == "tbb"]
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
