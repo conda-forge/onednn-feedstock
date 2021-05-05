@@ -23,10 +23,10 @@ outputs:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      {% if dnnl_cpu_runtime != "omp" %}
-      track_features:
-        - onednn-{{ dnnl_cpu_runtime }}
-      {% endif %}
+      {% if dnnl_cpu_runtime != "omp" %}  # [not win]
+      track_features:                     # [not win]
+        - onednn-{{ dnnl_cpu_runtime }}   # [not win]
+      {% endif %}                         # [not win]
     requirements:
       build:
         - cmake
@@ -58,7 +58,6 @@ outputs:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      # TODO: Add track_features once we support more than a single variant
     requirements:
       host:
         - {{ pin_subpackage('onednn', exact=True) }}
