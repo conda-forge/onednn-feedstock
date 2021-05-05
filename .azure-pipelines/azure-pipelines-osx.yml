@@ -8,11 +8,17 @@ jobs:
     vmImage: macOS-10.15
   strategy:
     matrix:
-      osx_64_:
-        CONFIG: osx_64_
+      osx_64_dnnl_cpu_runtimeomp:
+        CONFIG: osx_64_dnnl_cpu_runtimeomp
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_:
-        CONFIG: osx_arm64_
+      osx_64_dnnl_cpu_runtimetbb:
+        CONFIG: osx_64_dnnl_cpu_runtimetbb
+        UPLOAD_PACKAGES: 'True'
+      osx_arm64_dnnl_cpu_runtimeomp:
+        CONFIG: osx_arm64_dnnl_cpu_runtimeomp
+        UPLOAD_PACKAGES: 'True'
+      osx_arm64_dnnl_cpu_runtimetbb:
+        CONFIG: osx_arm64_dnnl_cpu_runtimetbb
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 

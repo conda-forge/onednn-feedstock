@@ -1,0 +1,3 @@
+dnnl_cpu_runtime:
+  - tbb
+  - omp  # [unix]

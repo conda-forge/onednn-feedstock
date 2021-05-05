@@ -8,8 +8,12 @@ jobs:
     vmImage: ubuntu-16.04
   strategy:
     matrix:
-      linux_64_:
-        CONFIG: linux_64_
+      linux_64_dnnl_cpu_runtimeomp:
+        CONFIG: linux_64_dnnl_cpu_runtimeomp
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_dnnl_cpu_runtimetbb:
+        CONFIG: linux_64_dnnl_cpu_runtimetbb
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
   timeoutInMinutes: 360
