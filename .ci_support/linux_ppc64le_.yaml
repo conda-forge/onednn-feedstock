@@ -15,13 +15,9 @@ cxx_compiler_version:
 dnnl_cpu_runtime:
 - omp
 docker_image:
-- quay.io/condaforge/linux-anvil-ppc64le
+- quay.io/condaforge/linux-anvil-comp7
 target_platform:
 - linux-ppc64le
-tbb:
-- '2020'
-tbb_devel:
-- '2020'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

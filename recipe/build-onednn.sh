@@ -15,7 +15,7 @@ cmake ${CMAKE_ARGS} -GNinja \
   -DDNNL_GPU_RUNTIME=NONE \
   ..
 ninja install
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 || "${CMAKE_CROSSCOMPILING_EMULATOR:-}" != "" ]]; then
   ninja test
 fi
 popd
