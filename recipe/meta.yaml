@@ -10,9 +10,10 @@ source:
   sha256: 01e651eb20ca1943bbdf756804fd02d13e5ff3c84b89e3aa5d40abdeb5bb07ee
   patches:
     - 1009.patch
+    - tbb2021_link.patch
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: {{ name|lower }}
