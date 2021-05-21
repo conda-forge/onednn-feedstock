@@ -48,6 +48,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_64_dnnl_cpu_runtimethreadpool</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=master&jobName=linux&configuration=linux_64_dnnl_cpu_runtimethreadpool" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>linux_aarch64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=master">
@@ -76,6 +83,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_64_dnnl_cpu_runtimethreadpool</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=master&jobName=osx&configuration=osx_64_dnnl_cpu_runtimethreadpool" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_arm64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=master">
@@ -90,10 +104,24 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
+              <td>win_64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=master&jobName=win&configuration=win_64_dnnl_cpu_runtimeomp" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_dnnl_cpu_runtimetbb</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=master&jobName=win&configuration=win_64_dnnl_cpu_runtimetbb" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_dnnl_cpu_runtimethreadpool</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=master&jobName=win&configuration=win_64_dnnl_cpu_runtimethreadpool" alt="variant">
                 </a>
               </td>
             </tr>
@@ -112,6 +140,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn-green.svg)](https://anaconda.org/conda-forge/onednn) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn.svg)](https://anaconda.org/conda-forge/onednn) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn.svg)](https://anaconda.org/conda-forge/onednn) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn.svg)](https://anaconda.org/conda-forge/onednn) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--omp-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--tbb-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--threadpool-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) |
 
 Installing onednn
 =================
@@ -123,10 +152,10 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-omp, onednn-cpu-tbb` can be installed with:
+Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-omp, onednn-cpu-tbb, onednn-cpu-threadpool` can be installed with:
 
 ```
-conda install onednn onednn-cpu-omp onednn-cpu-tbb
+conda install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool
 ```
 
 It is possible to list all of the versions of `onednn` available on your platform with:
