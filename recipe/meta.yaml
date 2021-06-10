@@ -11,6 +11,7 @@ source:
   patches:
     - 1009.patch
     - tbb2021_link.patch
+    - threading_data_race.patch
 
 build:
   number: 1
