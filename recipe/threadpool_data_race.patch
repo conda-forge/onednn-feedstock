@@ -1,0 +1,49 @@
+From 9430d9b0d90e046264de67459d4251d6c60a408a Mon Sep 17 00:00:00 2001
+From: "Safonov, Igor" <igor.safonov@intel.com>
+Date: Mon, 14 Jun 2021 15:23:58 -0700
+Subject: [PATCH] tests: threadpool: remove data race
+
+---
+ tests/test_thread.cpp | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/tests/test_thread.cpp b/tests/test_thread.cpp
+index e299c27..456754a 100644
+--- a/tests/test_thread.cpp
++++ b/tests/test_thread.cpp
+@@ -1,5 +1,5 @@
+ /*******************************************************************************
+-* Copyright 2020 Intel Corporation
++* Copyright 2020-2021 Intel Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+@@ -206,6 +206,7 @@ public:
+ private:
+     int num_threads_;
+     std::mutex master_mutex_;
++    std::mutex master_submit_mutex_;
+ 
+     struct worker_data {
+         int thread_id;
+@@ -242,6 +243,7 @@ private:
+     void barrier_notify(int worker_sense) { barrier_.notify(); }
+ 
+     void task_submit(const task_func *fn, int n) {
++        std::lock_guard<std::mutex> l(master_submit_mutex_);
+         tasks_[master_sense_].fn = fn;
+         tasks_[master_sense_].n = n;
+         tasks_[master_sense_].go_flag.store(1);
+@@ -266,8 +268,7 @@ private:
+         wd->tp->barrier_notify(worker_sense);
+ 
+         bool time_to_exit = false;
+-        std::mutex m;
+-        std::unique_lock<std::mutex> l(m);
++        std::unique_lock<std::mutex> l(wd->tp->master_submit_mutex_);
+ 
+         do {
+             worker_sense = !worker_sense;
+-- 
+1.8.3.1
+
