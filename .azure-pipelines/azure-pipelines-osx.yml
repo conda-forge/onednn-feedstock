@@ -14,6 +14,9 @@ jobs:
       osx_64_dnnl_cpu_runtimetbb:
         CONFIG: osx_64_dnnl_cpu_runtimetbb
         UPLOAD_PACKAGES: 'True'
+      osx_64_dnnl_cpu_runtimethreadpool:
+        CONFIG: osx_64_dnnl_cpu_runtimethreadpool
+        UPLOAD_PACKAGES: 'True'
       osx_arm64_dnnl_cpu_runtimeomp:
         CONFIG: osx_arm64_dnnl_cpu_runtimeomp
         UPLOAD_PACKAGES: 'True'

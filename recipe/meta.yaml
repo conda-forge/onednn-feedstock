@@ -11,9 +11,11 @@ source:
   patches:
     - 1009.patch
     - tbb2021_link.patch
+    - threading_data_race.patch
+    - threadpool_data_race.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -24,10 +26,10 @@ outputs:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      {% if dnnl_cpu_runtime != "omp" %}  # [not win]
-      track_features:   # [not win]
-        - onednn-{{ dnnl_cpu_runtime }}   # [not win]
-      {% endif %}                         # [not win]
+      {% if dnnl_cpu_runtime != "omp" %}
+      track_features:
+        - onednn-{{ dnnl_cpu_runtime }}
+      {% endif %}
     requirements:
       build:
         - cmake

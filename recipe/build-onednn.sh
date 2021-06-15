@@ -9,6 +9,8 @@ if [[ "${dnnl_cpu_runtime}" == "tbb" ]]; then
   DNNL_CPU_RUNTIME="TBB"
 elif [[ "${dnnl_cpu_runtime}" == "omp" ]]; then
   DNNL_CPU_RUNTIME="OMP"
+elif [[ "${dnnl_cpu_runtime}" == "threadpool" ]]; then
+  DNNL_CPU_RUNTIME="THREADPOOL"
 fi
 cmake ${CMAKE_ARGS} -GNinja \
   -DDNNL_CPU_RUNTIME=${DNNL_CPU_RUNTIME} \
