@@ -1,5 +1,5 @@
 {% set name = "oneDNN" %}
-{% set version = "2.2.3" %}
+{% set version = "2.2.4" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 07e5cc2a30e7bb5a381eba04f8579f427372132ed3d44363f5fd89850a7b50fd
+  sha256: ebb383078fa8f81c24310e73984a0d9e759eb9febe73887956953824f780fc32
   patches:
     - 1009.patch
     - tbb2021_link.patch
@@ -15,7 +15,7 @@ source:
     - threadpool_data_race.patch
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: {{ name|lower }}
