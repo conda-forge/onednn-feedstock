@@ -2,6 +2,10 @@
 
 set -exuo pipefail
 
+if [[ "${target_platform}" == "linux-64" ]]; then
+  export LDFLAGS="-lrt ${LDFLAGS}"
+fi
+
 mkdir build
 pushd build
 if [[ "${dnnl_cpu_runtime}" == "tbb" ]]; then
