@@ -2,9 +2,9 @@
 
 md "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
-set CMAKE_PREFIX_PATH=%PREFIX%
+set CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%
 if [%dnnl_cpu_runtime%]==[tbb] (
-    set TBBROOT=%PREFIX%
+    set TBBROOT=%LIBRARY_PREFIX%
     set DNNL_CPU_RUNTIME=TBB
     )
 if [%dnnl_cpu_runtime%]==[omp] set DNNL_CPU_RUNTIME=OMP
