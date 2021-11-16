@@ -19,7 +19,7 @@ cxx_compiler_version:
 dnnl_cpu_runtime:
 - omp
 docker_image:
-- quay.io/condaforge/linux-anvil-aarch64
+- quay.io/condaforge/linux-anvil-comp7
 target_platform:
 - linux-aarch64
 zip_keys:
