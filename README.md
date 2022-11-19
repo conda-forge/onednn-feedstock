@@ -30,91 +30,91 @@ Current build status
               <td>linux_64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux_64_dnnl_cpu_runtimeomp" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_dnnl_cpu_runtimeomp" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_64_dnnl_cpu_runtimetbb</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux_64_dnnl_cpu_runtimetbb" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_dnnl_cpu_runtimetbb" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_64_dnnl_cpu_runtimethreadpool</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux_64_dnnl_cpu_runtimethreadpool" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_dnnl_cpu_runtimethreadpool" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_aarch64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_ppc64le</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx_64_dnnl_cpu_runtimeomp" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_dnnl_cpu_runtimeomp" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64_dnnl_cpu_runtimetbb</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx_64_dnnl_cpu_runtimetbb" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_dnnl_cpu_runtimetbb" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64_dnnl_cpu_runtimethreadpool</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx_64_dnnl_cpu_runtimethreadpool" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_dnnl_cpu_runtimethreadpool" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_arm64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx_arm64_dnnl_cpu_runtimeomp" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_dnnl_cpu_runtimeomp" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_arm64_dnnl_cpu_runtimetbb</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx_arm64_dnnl_cpu_runtimetbb" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_dnnl_cpu_runtimetbb" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>win_64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win_64_dnnl_cpu_runtimeomp" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win%20win_64_dnnl_cpu_runtimeomp" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>win_64_dnnl_cpu_runtimetbb</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win_64_dnnl_cpu_runtimetbb" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win%20win_64_dnnl_cpu_runtimetbb" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>win_64_dnnl_cpu_runtimethreadpool</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win_64_dnnl_cpu_runtimethreadpool" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win%20win_64_dnnl_cpu_runtimethreadpool" alt="variant">
                 </a>
               </td>
             </tr>
