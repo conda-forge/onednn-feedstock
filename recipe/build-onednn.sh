@@ -6,6 +6,11 @@ if [[ "${target_platform}" == "linux-64" ]]; then
   export LDFLAGS="-lrt ${LDFLAGS}"
 fi
 
+if [[ "${target_platform}" == "osx-"* ]]; then
+  # workaround till https://gitlab.kitware.com/cmake/cmake/-/merge_requests/7941 is merged
+  ln -sf ${PREFIX}/include/CL ${PREFIX}/include/Headers
+fi
+
 mkdir build
 pushd build
 if [[ "${dnnl_cpu_runtime}" == "tbb" ]]; then
@@ -29,3 +34,8 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
   ninja test
 fi
 popd
+
+if [[ "${target_platform}" == "osx-"* ]]; then
+  # workaround till https://gitlab.kitware.com/cmake/cmake/-/merge_requests/7941 is merged
+  rm -f ${PREFIX}/include/Headers
+fi
