@@ -1,0 +1,24 @@
+From b75ea19f2c3e94258131f07b4d2b6ab7e26b7329 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Sun, 20 Nov 2022 14:22:59 -0600
+Subject: [PATCH] Do not let altivec.h redefine bool
+
+---
+ src/cpu/ppc64/ppc64_gemm_s8x8s32.hpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/cpu/ppc64/ppc64_gemm_s8x8s32.hpp b/src/cpu/ppc64/ppc64_gemm_s8x8s32.hpp
+index d61331caee8..14da1ab1f3f 100644
+--- a/src/cpu/ppc64/ppc64_gemm_s8x8s32.hpp
++++ b/src/cpu/ppc64/ppc64_gemm_s8x8s32.hpp
+@@ -15,6 +15,9 @@
+ *******************************************************************************/
+ 
+ #include <altivec.h>
++#ifdef bool
++#undef bool
++#endif
+ #include "cpu/simple_q10n.hpp"
+ 
+ namespace dnnl {
+

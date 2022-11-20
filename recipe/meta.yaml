@@ -10,6 +10,7 @@ source:
   sha256: 49018ee24b1b13c166510354c03c2f1489262b10ee09b12cdeaec5745f99ac50
   patches:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
+    - gh1503.patch
 
 build:
   number: 1
