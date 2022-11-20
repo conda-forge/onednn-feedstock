@@ -22,6 +22,7 @@ DNNL_GPU_RUNTIME=$(echo "${dnnl_gpu_runtime}" | tr '[:lower:]' '[:upper:]')
 cmake ${CMAKE_ARGS} -GNinja \
   -DDNNL_CPU_RUNTIME=${DNNL_CPU_RUNTIME} \
   -DDNNL_GPU_RUNTIME=${DNNL_GPU_RUNTIME} \
+  -DCMAKE_FIND_FRAMEWORK=LAST \
   ..
 ninja install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
