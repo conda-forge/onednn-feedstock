@@ -134,6 +134,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--omp-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--tbb-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--threadpool-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--gpu--ocl-green.svg)](https://anaconda.org/conda-forge/onednn-gpu-ocl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-gpu-ocl.svg)](https://anaconda.org/conda-forge/onednn-gpu-ocl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-gpu-ocl.svg)](https://anaconda.org/conda-forge/onednn-gpu-ocl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-gpu-ocl.svg)](https://anaconda.org/conda-forge/onednn-gpu-ocl) |
 
 Installing onednn
 =================
@@ -145,16 +146,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-omp, onednn-cpu-tbb, onednn-cpu-threadpool` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-omp, onednn-cpu-tbb, onednn-cpu-threadpool, onednn-gpu-ocl` can be installed with `conda`:
 
 ```
-conda install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool
+conda install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-gpu-ocl
 ```
 
 or with `mamba`:
 
 ```
-mamba install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool
+mamba install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-gpu-ocl
 ```
 
 It is possible to list all of the versions of `onednn` available on your platform with `conda`:

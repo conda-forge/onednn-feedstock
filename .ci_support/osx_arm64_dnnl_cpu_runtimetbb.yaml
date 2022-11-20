@@ -14,6 +14,8 @@ cxx_compiler_version:
 - '14'
 dnnl_cpu_runtime:
 - tbb
+dnnl_gpu_runtime:
+- ocl
 llvm_openmp:
 - '14'
 macos_machine:
