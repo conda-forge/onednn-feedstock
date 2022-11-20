@@ -23,9 +23,12 @@ outputs:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      {% if dnnl_cpu_runtime != "omp" %}
       track_features:
+      {% if dnnl_cpu_runtime != "omp" %}
         - onednn-{{ dnnl_cpu_runtime }}
+      {% endif %}
+      {% if dnnl_gpu_runtime != "ocl" %}
+        - onednn-{{ dnnl_gpu_runtime }}
       {% endif %}
     requirements:
       build:
