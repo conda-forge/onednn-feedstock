@@ -16,9 +16,12 @@ elif [[ "${dnnl_cpu_runtime}" == "omp" ]]; then
 elif [[ "${dnnl_cpu_runtime}" == "threadpool" ]]; then
   DNNL_CPU_RUNTIME="THREADPOOL"
 fi
+
+DNNL_GPU_RUNTIME=$(echo "${dnnl_gpu_runtime}" | tr '[:lower:]' '[:upper:]')
+
 cmake ${CMAKE_ARGS} -GNinja \
   -DDNNL_CPU_RUNTIME=${DNNL_CPU_RUNTIME} \
-  -DDNNL_GPU_RUNTIME=NONE \
+  -DDNNL_GPU_RUNTIME=${DNNL_GPU_RUNTIME} \
   ..
 ninja install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then

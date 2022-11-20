@@ -2,3 +2,5 @@ dnnl_cpu_runtime:
   - tbb  # [not (ppc64le or aarch64)]
   - omp
   - threadpool # [not (ppc64le or aarch64 or arm64)]
+dnnl_gpu_runtime:
+  - ocl
