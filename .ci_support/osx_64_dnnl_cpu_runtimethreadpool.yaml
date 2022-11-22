@@ -15,7 +15,7 @@ cxx_compiler_version:
 dnnl_cpu_runtime:
 - threadpool
 dnnl_gpu_runtime:
-- ocl
+- none
 llvm_openmp:
 - '14'
 macos_machine:
