@@ -21,7 +21,7 @@ outputs:
     script: bld-onednn.bat   # [win]
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
       track_features:
@@ -82,7 +82,6 @@ outputs:
       string: {{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      skip: True  # [gnnl_gpu_runtime == "none"]
     requirements:
       host:
         - {{ pin_subpackage('onednn', exact=True) }}
