@@ -36,6 +36,7 @@ outputs:
         - ninja
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ compiler('dpcpp') }}  # [dnnl_cpu_runtime == "dpcpp" or dnnl_gpu_runtime == "dpcpp"]
         - llvm-openmp  # [osx]
       host:
         - tbb        # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
