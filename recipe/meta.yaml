@@ -41,8 +41,6 @@ outputs:
       host:
         - tbb        # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
         - tbb-devel  # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
-        - dpcpp_linux-64  # [linux and (dnnl_cpu_runtime == "dpcpp" or dnnl_gpu_runtime == "dpcpp")]
-        - dpcpp_win-64  # [win and (dnnl_cpu_runtime == "dpcpp" or dnnl_gpu_runtime == "dpcpp")]
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
