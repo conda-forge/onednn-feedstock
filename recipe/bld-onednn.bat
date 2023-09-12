@@ -9,11 +9,23 @@ if [%dnnl_cpu_runtime%]==[tbb] (
     )
 if [%dnnl_cpu_runtime%]==[omp] set DNNL_CPU_RUNTIME=OMP
 if [%dnnl_cpu_runtime%]==[threadpool] set DNNL_CPU_RUNTIME=THREADPOOL
+if [%dnnl_cpu_runtime%]==[dpcpp] (
+    set TBBROOT=%LIBRARY_PREFIX%
+    set DNNL_CPU_RUNTIME=DPCPP
+    set CC=icx
+    set CXX=icpx
+    )
+if [%dnnl_gpu_runtime%]==[dpcpp] (
+    set DNNL_GPU_RUNTIME=DPCPP
+    set CC=icx
+    set CXX=icpx
+    )
+if [%dnnl_gpu_runtime%]==[none] set DNNL_GPU_RUNTIME=NONE
 
 cmake -GNinja %CMAKE_ARGS% ^
   -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
   -DDNNL_CPU_RUNTIME=%DNNL_CPU_RUNTIME% ^
-  -DDNNL_GPU_RUNTIME=NONE ^
+  -DDNNL_GPU_RUNTIME=%DNNL_GPU_RUNTIME% ^
   ..
 if errorlevel 1 exit 1
 ninja install

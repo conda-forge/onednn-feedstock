@@ -12,7 +12,7 @@ source:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: {{ name|lower }}
@@ -20,14 +20,17 @@ outputs:
     script: bld-onednn.bat  # [win]
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      {% if dnnl_cpu_runtime != "omp" %}
       track_features:
+      {% if dnnl_cpu_runtime != "omp" %}
         - onednn-{{ dnnl_cpu_runtime }}
       {% endif %}
-    requirements:
+      {% if dnnl_gpu_runtime != "none" %}
+        - onednn-{{ dnnl_gpu_runtime }}
+      {% endif %}
+      requirements:
       build:
         - cmake
         - ninja
@@ -35,8 +38,10 @@ outputs:
         - {{ compiler('cxx') }}
         - llvm-openmp  # [osx]
       host:
-        - tbb        # [dnnl_cpu_runtime == "tbb"]
-        - tbb-devel  # [dnnl_cpu_runtime == "tbb"]
+        - tbb        # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
+        - tbb-devel  # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
+        - dpcpp_linux-64  # [linux and (dnnl_cpu_runtime == "dpcpp" or dnnl_gpu_runtime == "dpcpp")]
+        - dpcpp_win-64  # [win and (dnnl_cpu_runtime == "dpcpp" or dnnl_gpu_runtime == "dpcpp")]
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
@@ -73,10 +78,10 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\\bin\\dnnl.dll exit 1  # [win]
         - if not exist %LIBRARY_PREFIX%\\lib\\dnnl.lib exit 1  # [win]
         - if not exist %LIBRARY_PREFIX%\\include\\dnnl.h exit 1  # [win]
-  - name: {{ name|lower }}-cpu-{{ dnnl_cpu_runtime }}
+  - name: {{ name|lower }}-cpu-{{ dnnl_cpu_runtime }}-gpu-{{ dnnl_gpu_runtime }}
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
     requirements:
