@@ -30,7 +30,7 @@ outputs:
       {% if dnnl_gpu_runtime != "none" %}
         - onednn-{{ dnnl_gpu_runtime }}
       {% endif %}
-      requirements:
+    requirements:
       build:
         - cmake
         - ninja
