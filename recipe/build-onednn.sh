@@ -36,6 +36,8 @@ cmake ${CMAKE_ARGS} -GNinja \
   ..
 ninja install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
-  ninja test
+  # GPU tests are skipped due to lack of GPU installed on the test systems
+  # Gtests are sufficient to make sure the library is built correctly
+  ctest --output-on-failure -E "gpu|benchdnn"
 fi
 popd

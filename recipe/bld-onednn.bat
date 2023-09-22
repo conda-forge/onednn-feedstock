@@ -30,6 +30,8 @@ cmake -GNinja %CMAKE_ARGS% ^
 if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
-ninja test
+:: GPU tests are skipped due to lack of GPU installed on the test systems
+:: Gtests are sufficient to make sure the library is built correctly
+ctest --output-on-failure -E "(gpu^|benchdnn)"
 if errorlevel 1 exit 1
 popd
