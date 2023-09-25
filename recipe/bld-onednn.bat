@@ -12,13 +12,9 @@ if [%dnnl_cpu_runtime%]==[threadpool] set DNNL_CPU_RUNTIME=THREADPOOL
 if [%dnnl_cpu_runtime%]==[dpcpp] (
     set TBBROOT=%LIBRARY_PREFIX%
     set DNNL_CPU_RUNTIME=DPCPP
-    set CC=icx
-    set CXX=icpx
     )
 if [%dnnl_gpu_runtime%]==[dpcpp] (
     set DNNL_GPU_RUNTIME=DPCPP
-    set CC=icx
-    set CXX=icpx
     )
 if [%dnnl_gpu_runtime%]==[none] set DNNL_GPU_RUNTIME=NONE
 
