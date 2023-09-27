@@ -36,7 +36,7 @@ outputs:
         - {{ compiler('dpcpp') }}  # [dnnl_cpu_runtime == "dpcpp"]
         - llvm-openmp  # [osx]
       host:
-        - tbb-devel  # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
+        - tbb-devel  # [dnnl_cpu_runtime == "tbb"]
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
