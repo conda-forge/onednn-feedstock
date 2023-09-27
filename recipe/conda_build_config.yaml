@@ -3,6 +3,3 @@ dnnl_cpu_runtime:
   - omp
   - threadpool # [not (ppc64le or aarch64 or arm64)]
   - dpcpp # [x86_64 and (linux64 or win64)]
-dnnl_gpu_runtime:
-  - dpcpp # [x86_64 and (linux or win)]
-  - none

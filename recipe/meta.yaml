@@ -20,15 +20,12 @@ outputs:
     script: bld-onednn.bat  # [win]
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      track_features:
       {% if dnnl_cpu_runtime != "omp" %}
+      track_features:
         - onednn-{{ dnnl_cpu_runtime }}
-      {% endif %}
-      {% if dnnl_gpu_runtime != "none" %}
-        - onednn-{{ dnnl_gpu_runtime }}
       {% endif %}
     requirements:
       build:
@@ -36,10 +33,9 @@ outputs:
         - ninja
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('dpcpp') }}  # [dnnl_cpu_runtime == "dpcpp" or dnnl_gpu_runtime == "dpcpp"]
+        - {{ compiler('dpcpp') }}  # [dnnl_cpu_runtime == "dpcpp"]
         - llvm-openmp  # [osx]
       host:
-        - tbb        # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
         - tbb-devel  # [dnnl_cpu_runtime == "tbb" or dnnl_cpu_runtime == "dpcpp"]
     about:
       home: https://github.com/oneapi-src/oneDNN
@@ -78,89 +74,42 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\\lib\\dnnl.lib exit 1  # [win]
         - if not exist %LIBRARY_PREFIX%\\include\\dnnl.h exit 1  # [win]
 
-  - name: onednn-cpu-{{ dnnl_cpu_runtime }}-gpu-{{ dnnl_gpu_runtime }}
-    version: {{ version }}
-    build:
-      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-      run_exports:
-        - {{ pin_subpackage("onednn", max_pin="x") }}
-    requirements:
-      host:
-        - {{ pin_subpackage('onednn', exact=True) }}
-      run:
-        - {{ pin_subpackage('onednn', exact=True) }}
-    about:
-      home: https://github.com/oneapi-src/oneDNN
-      license: Apache-2.0
-      license_file: LICENSE
-      summary: oneAPI Deep Neural Network Library (oneDNN)
-      description: |
-          oneAPI Deep Neural Network Library (oneDNN) is an open-source
-          cross-platform performance library of basic building blocks for deep
-          learning applications.
-
-          oneDNN is intended for deep learning applications and framework
-          developers interested in improving application performance.
-          Deep learning practitioners should use one of the applications
-          enabled with oneDNN.
-
-      {% if dnnl_cpu_runtime == "omp" %}
-          In this package oneDNN is built with the OpenMP CPU runtime.
-      {% elif dnnl_cpu_runtime == "tbb" %}
-          In this package oneDNN is built with the TBB CPU runtime.
-      {% elif dnnl_cpu_runtime == "threadpool" %}
-          In this package oneDNN is built with the Threadpool CPU runtime.
-          oneDNN requires the user to implement a Threadpool interface to enable
-          the library to perform computations using multiple threads.
-      {% endif %}
-
-          For more information please read oneDNN developer guide:
-          https://oneapi-src.github.io/oneDNN/
-    test:
-      commands:
-        - exit 0
-
-  - name: onednn-gpu-{{ dnnl_gpu_runtime }}
-    version: {{ version }}
-    build:
-      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-      run_exports:
-        - {{ pin_subpackage("onednn", max_pin="x") }}
-      track_features:
-      {% if dnnl_gpu_runtime != "none" %}
-        - onednn-{{ dnnl_gpu_runtime }}
-      {% endif %}
-    requirements:
-      host:
-        - {{ pin_subpackage('onednn', exact=True) }}
-      run:
-        - {{ pin_subpackage('onednn', exact=True) }}
-        - onednn-cpu-{{ dnnl_cpu_runtime }}-gpu-{{ dnnl_gpu_runtime }}
-    about:
-      home: https://github.com/oneapi-src/oneDNN
-      license: Apache-2.0
-      license_file: LICENSE
-      summary: oneAPI Deep Neural Network Library (oneDNN)
-    test:
-      commands:
-        - exit 0
-
   - name: onednn-cpu-{{ dnnl_cpu_runtime }}
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
+    requirements:
+      host:
+        - {{ pin_subpackage('onednn', exact=True) }}
+      run:
+        - {{ pin_subpackage('onednn', exact=True) }}
+    about:
+      home: https://github.com/oneapi-src/oneDNN
+      license: Apache-2.0
+      license_file: LICENSE
+      summary: oneAPI Deep Neural Network Library (oneDNN)
+    test:
+      commands:
+        - exit 0
+
+  - name: onednn-{{ dnnl_cpu_runtime }}
+    version: {{ version }}
+    build:
+      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      run_exports:
+        - {{ pin_subpackage("onednn", max_pin="x") }}
+      {% if dnnl_cpu_runtime == "dpcpp" %}
       track_features:
-      {% if dnnl_cpu_runtime != "omp" %}
-        - onednn-{{ dnnl_cpu_runtime }}
+        - onednn-cpu-{{ dnnl_cpu_runtime }}
       {% endif %}
     requirements:
       host:
         - {{ pin_subpackage('onednn', exact=True) }}
       run:
         - {{ pin_subpackage('onednn', exact=True) }}
-        - onednn-cpu-{{ dnnl_cpu_runtime }}-gpu-{{ dnnl_gpu_runtime }}
+        - onednn-cpu-{{ dnnl_cpu_runtime }}
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0

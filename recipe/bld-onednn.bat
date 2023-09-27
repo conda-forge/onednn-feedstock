@@ -3,6 +3,7 @@
 md "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 set CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%
+set DNNL_GPU_RUNTIME=NONE
 if [%dnnl_cpu_runtime%]==[tbb] (
     set TBBROOT=%LIBRARY_PREFIX%
     set DNNL_CPU_RUNTIME=TBB
@@ -12,11 +13,8 @@ if [%dnnl_cpu_runtime%]==[threadpool] set DNNL_CPU_RUNTIME=THREADPOOL
 if [%dnnl_cpu_runtime%]==[dpcpp] (
     set TBBROOT=%LIBRARY_PREFIX%
     set DNNL_CPU_RUNTIME=DPCPP
-    )
-if [%dnnl_gpu_runtime%]==[dpcpp] (
     set DNNL_GPU_RUNTIME=DPCPP
     )
-if [%dnnl_gpu_runtime%]==[none] set DNNL_GPU_RUNTIME=NONE
 
 cmake -GNinja %CMAKE_ARGS% ^
   -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^

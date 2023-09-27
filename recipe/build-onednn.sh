@@ -8,6 +8,7 @@ fi
 
 mkdir build
 pushd build
+DNNL_GPU_RUNTIME="NONE"
 if [[ "${dnnl_cpu_runtime}" == "tbb" ]]; then
   export TBBROOT=${PREFIX}
   DNNL_CPU_RUNTIME="TBB"
@@ -18,12 +19,7 @@ elif [[ "${dnnl_cpu_runtime}" == "threadpool" ]]; then
 elif [[ "${dnnl_cpu_runtime}" == "dpcpp" ]]; then
   export TBBROOT=${PREFIX}
   DNNL_CPU_RUNTIME="DPCPP"
-fi
-if [[ "${dnnl_gpu_runtime}" == "dpcpp" ]]; then
-  export TBBROOT=${PREFIX}
   DNNL_GPU_RUNTIME="DPCPP"
-elif [[ "${dnnl_gpu_runtime}" == "none" ]]; then
-  DNNL_GPU_RUNTIME="NONE"
 fi
 
 cmake ${CMAKE_ARGS} -GNinja \
