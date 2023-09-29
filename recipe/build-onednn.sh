@@ -17,6 +17,7 @@ elif [[ "${dnnl_cpu_runtime}" == "omp" ]]; then
 elif [[ "${dnnl_cpu_runtime}" == "threadpool" ]]; then
   DNNL_CPU_RUNTIME="THREADPOOL"
 elif [[ "${dnnl_cpu_runtime}" == "dpcpp" ]]; then
+  CMAKE_PREFIX_PATH=${PREFIX}/lib/cmake/TBB
   export TBBROOT=${PREFIX}
   DNNL_CPU_RUNTIME="DPCPP"
   DNNL_GPU_RUNTIME="DPCPP"
