@@ -76,26 +76,9 @@ outputs:
 
   {% if dnnl_cpu_runtime != "dpcpp" %}
   - name: onednn-cpu-{{ dnnl_cpu_runtime }}
-    version: {{ version }}
-    build:
-      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-      run_exports:
-        - {{ pin_subpackage("onednn", max_pin="x") }}
-    requirements:
-      host:
-        - {{ pin_subpackage('onednn', exact=True) }}
-      run:
-        - {{ pin_subpackage('onednn', exact=True) }}
-    about:
-      home: https://github.com/oneapi-src/oneDNN
-      license: Apache-2.0
-      license_file: LICENSE
-      summary: oneAPI Deep Neural Network Library (oneDNN)
-    test:
-      commands:
-        - exit 0
   {% else %}
   - name: onednn-{{ dnnl_cpu_runtime }}
+  {% endif %}
     version: {{ version }}
     build:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
@@ -114,7 +97,6 @@ outputs:
     test:
       commands:
         - exit 0
-  {% endif %}
 
 about:
   home: https://github.com/oneapi-src/oneDNN
