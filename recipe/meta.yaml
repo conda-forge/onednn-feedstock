@@ -74,6 +74,7 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\\lib\\dnnl.lib exit 1  # [win]
         - if not exist %LIBRARY_PREFIX%\\include\\dnnl.h exit 1  # [win]
 
+  {% if dnnl_cpu_runtime != "dpcpp" %}
   - name: onednn-cpu-{{ dnnl_cpu_runtime }}
     version: {{ version }}
     build:
@@ -93,23 +94,18 @@ outputs:
     test:
       commands:
         - exit 0
-
+  {% else %}
   - name: onednn-{{ dnnl_cpu_runtime }}
     version: {{ version }}
     build:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      {% if dnnl_cpu_runtime == "dpcpp" %}
-      track_features:
-        - onednn-cpu-{{ dnnl_cpu_runtime }}
-      {% endif %}
     requirements:
       host:
         - {{ pin_subpackage('onednn', exact=True) }}
       run:
         - {{ pin_subpackage('onednn', exact=True) }}
-        - onednn-cpu-{{ dnnl_cpu_runtime }}
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
@@ -118,6 +114,7 @@ outputs:
     test:
       commands:
         - exit 0
+  {% endif %}
 
 about:
   home: https://github.com/oneapi-src/oneDNN
