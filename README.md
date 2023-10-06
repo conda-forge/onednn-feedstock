@@ -3,6 +3,7 @@ About onednn-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/onednn-feedstock/blob/main/LICENSE.txt)
 
+
 About onednn
 ------------
 
@@ -11,6 +12,7 @@ Home: https://github.com/oneapi-src/oneDNN
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
+
 About onednn-cpu-omp
 --------------------
 
@@ -19,6 +21,7 @@ Home: https://github.com/oneapi-src/oneDNN
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
+
 About onednn-cpu-tbb
 --------------------
 
@@ -27,6 +30,7 @@ Home: https://github.com/oneapi-src/oneDNN
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
+
 About onednn-cpu-threadpool
 ---------------------------
 
