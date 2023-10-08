@@ -10,22 +10,26 @@ source:
   sha256: 8d150a77025f38bff182aaef4dd643625563b2f311c635f86cf4b769b04d7b48
   patches:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
+    - gh1503.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
     script: build-onednn.sh  # [not win]
-    script: bld-onednn.bat  # [win]
+    script: bld-onednn.bat   # [win]
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_{{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
-      {% if dnnl_cpu_runtime != "omp" %}
       track_features:
+      {% if dnnl_cpu_runtime != "omp" %}
         - onednn-{{ dnnl_cpu_runtime }}
+      {% endif %}
+      {% if dnnl_gpu_runtime != "ocl" and dnnl_gpu_runtime != "none" %}
+        - onednn-{{ dnnl_gpu_runtime }}
       {% endif %}
     requirements:
       build:
@@ -37,6 +41,8 @@ outputs:
       host:
         - tbb        # [dnnl_cpu_runtime == "tbb"]
         - tbb-devel  # [dnnl_cpu_runtime == "tbb"]
+        - ocl-icd    # [linux]
+        - khronos-opencl-icd-loader      # [win or osx]
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
@@ -55,6 +61,25 @@ outputs:
     version: {{ version }}
     build:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      run_exports:
+        - {{ pin_subpackage("onednn", max_pin="x") }}
+    requirements:
+      host:
+        - {{ pin_subpackage('onednn', exact=True) }}
+      run:
+        - {{ pin_subpackage('onednn', exact=True) }}
+    about:
+      home: https://github.com/oneapi-src/oneDNN
+      license: Apache-2.0
+      license_file: LICENSE
+      summary: oneAPI Deep Neural Network Library (oneDNN)
+    test:
+      commands:
+        - exit 0
+  - name: {{ name|lower }}-gpu-{{ dnnl_gpu_runtime }}
+    version: {{ version }}
+    build:
+      string: {{ dnnl_gpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
     requirements:

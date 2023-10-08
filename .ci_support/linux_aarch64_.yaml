@@ -18,6 +18,8 @@ cxx_compiler_version:
 - '12'
 dnnl_cpu_runtime:
 - omp
+dnnl_gpu_runtime:
+- none
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 target_platform:
