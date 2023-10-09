@@ -31,6 +31,10 @@ ninja install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
   # GPU tests are skipped due to lack of GPU installed on the test systems
   # Gtests are sufficient to make sure the library is built correctly
+  # DPC++ validation is skipped due to lack of glibc 2.28 in testing environment
+  # TODO: re-enable DPC++ validation once glibc 2.28 is supported
+if [[ "${dnnl_cpu_runtime}" != "dpcpp" ]]; then
   ctest --output-on-failure -E "gpu|benchdnn"
+fi
 fi
 popd
