@@ -1,3 +1,7 @@
+# use a docker image with glibc 2.28 in it for testing
+docker_image:                               # [linux64]
+- quay.io/condaforge/linux-anvil-alma       # [linux64]
+
 dnnl_cpu_runtime:
   - tbb  # [not (ppc64le or aarch64)]
   - omp
