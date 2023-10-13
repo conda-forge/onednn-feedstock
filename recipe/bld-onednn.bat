@@ -14,6 +14,10 @@ if [%dnnl_cpu_runtime%]==[dpcpp] (
     set TBBROOT=%LIBRARY_PREFIX%
     set DNNL_CPU_RUNTIME=DPCPP
     set DNNL_GPU_RUNTIME=DPCPP
+    :: A workaround for the dpcpp compiler environment issue:
+    :: https://github.com/conda-forge/intel-compiler-repack-feedstock/pull/25
+    set "LIB=%BUILD_PREFIX%\Library\lib;%LIB%"
+    set "INCLUDE=%BUILD_PREFIX%\include;%INCLUDE%"
     )
 
 cmake -GNinja %CMAKE_ARGS% ^
