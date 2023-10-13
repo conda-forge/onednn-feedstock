@@ -13,7 +13,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '12'
 dnnl_cpu_runtime:
-- tbb
+- dpcpp
 docker_image:
 - quay.io/condaforge/linux-anvil-alma:8
 target_platform:

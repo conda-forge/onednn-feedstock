@@ -8,6 +8,9 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
+      win_64_dnnl_cpu_runtimedpcpp:
+        CONFIG: win_64_dnnl_cpu_runtimedpcpp
+        UPLOAD_PACKAGES: 'True'
       win_64_dnnl_cpu_runtimeomp:
         CONFIG: win_64_dnnl_cpu_runtimeomp
         UPLOAD_PACKAGES: 'True'
