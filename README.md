@@ -32,7 +32,7 @@ Deep learning practitioners should use one of the applications
 enabled with oneDNN.
 
 
-In this package oneDNN is built with the TBB CPU runtime.
+In this package oneDNN is built with the OpenMP CPU runtime.
 
 
 For more information please read oneDNN developer guide:

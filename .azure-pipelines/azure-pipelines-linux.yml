@@ -11,19 +11,19 @@ jobs:
       linux_64_dnnl_cpu_runtimedpcpp:
         CONFIG: linux_64_dnnl_cpu_runtimedpcpp
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma:8
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
       linux_64_dnnl_cpu_runtimeomp:
         CONFIG: linux_64_dnnl_cpu_runtimeomp
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma:8
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
       linux_64_dnnl_cpu_runtimetbb:
         CONFIG: linux_64_dnnl_cpu_runtimetbb
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma:8
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
       linux_64_dnnl_cpu_runtimethreadpool:
         CONFIG: linux_64_dnnl_cpu_runtimethreadpool
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma:8
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
       linux_aarch64_:
         CONFIG: linux_aarch64_
         UPLOAD_PACKAGES: 'True'

@@ -15,7 +15,7 @@ cxx_compiler_version:
 dnnl_cpu_runtime:
 - threadpool
 docker_image:
-- quay.io/condaforge/linux-anvil-alma:8
+- quay.io/condaforge/linux-anvil-alma-x86_64:8
 target_platform:
 - linux-64
 tbb:
