@@ -1,5 +1,8 @@
 @echo on
 
+:: Temp solution to check DPCPP env
+set SYCL_PI_TRACE=1
+
 md "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 set CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%
@@ -28,6 +31,13 @@ cmake -GNinja %CMAKE_ARGS% ^
 if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
+:: A simple test to validate environment setup for DPCPP
+if [%dnnl_cpu_runtime%]==[DPCPP] (
+    icpx -fsycl %RECIPE_DIR%/dpcpp_check.cpp -I%PREFIX%\include -o dpcpp_check.exe
+    if errorlevel 1 exit 1
+    dpcpp_check.exe
+    if errorlevel 1 exit 1
+    )
 :: GPU tests are skipped due to lack of GPU installed on the test systems
 :: Gtests are sufficient to make sure the library is built correctly
 ctest --output-on-failure -E "(gpu|benchdnn)"
