@@ -6,4 +6,4 @@ dnnl_cpu_runtime:
   - tbb  # [not (ppc64le or aarch64)]
   - omp
   - threadpool # [not (ppc64le or aarch64 or arm64)]
-  - dpcpp # [x86_64 and (linux64 or win64)]
+  - dpcpp # [x86_64 and linux64]
