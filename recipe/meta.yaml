@@ -12,7 +12,7 @@ source:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: {{ name|lower }}
@@ -33,10 +33,10 @@ outputs:
         - ninja
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ compiler('dpcpp') }}  # [dnnl_cpu_runtime == "dpcpp"]
         - llvm-openmp  # [osx]
       host:
-        - tbb        # [dnnl_cpu_runtime == "tbb"]
-        - tbb-devel  # [dnnl_cpu_runtime == "tbb"]
+        - tbb-devel  # [dnnl_cpu_runtime in ("tbb", "dpcpp")]
     about:
       home: https://github.com/oneapi-src/oneDNN
       license: Apache-2.0
@@ -62,6 +62,8 @@ outputs:
           In this package oneDNN is built with the Threadpool CPU runtime.
           oneDNN requires the user to implement a Threadpool interface to enable
           the library to perform computations using multiple threads.
+      {% elif dnnl_cpu_runtime == "dpcpp" %}
+          In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
       {% endif %}
 
           For more information please read oneDNN developer guide:
@@ -73,7 +75,12 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\\bin\\dnnl.dll exit 1  # [win]
         - if not exist %LIBRARY_PREFIX%\\lib\\dnnl.lib exit 1  # [win]
         - if not exist %LIBRARY_PREFIX%\\include\\dnnl.h exit 1  # [win]
-  - name: {{ name|lower }}-cpu-{{ dnnl_cpu_runtime }}
+
+  {% if dnnl_cpu_runtime != "dpcpp" %}
+  - name: onednn-cpu-{{ dnnl_cpu_runtime }}
+  {% else %}
+  - name: onednn-{{ dnnl_cpu_runtime }}
+  {% endif %}
     version: {{ version }}
     build:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
@@ -107,6 +114,8 @@ outputs:
           In this package oneDNN is built with the Threadpool CPU runtime.
           oneDNN requires the user to implement a Threadpool interface to enable
           the library to perform computations using multiple threads.
+      {% elif dnnl_cpu_runtime == "dpcpp" %}
+          In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
       {% endif %}
 
           For more information please read oneDNN developer guide:

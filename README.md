@@ -32,7 +32,7 @@ Deep learning practitioners should use one of the applications
 enabled with oneDNN.
 
 
-In this package oneDNN is built with the TBB CPU runtime.
+In this package oneDNN is built with the OpenMP CPU runtime.
 
 
 For more information please read oneDNN developer guide:
@@ -119,6 +119,32 @@ For more information please read oneDNN developer guide:
 https://oneapi-src.github.io/oneDNN/
 
 
+About onednn-dpcpp
+------------------
+
+Home: https://github.com/oneapi-src/oneDNN
+
+Package license: Apache-2.0
+
+Summary: oneAPI Deep Neural Network Library (oneDNN)
+
+oneAPI Deep Neural Network Library (oneDNN) is an open-source
+cross-platform performance library of basic building blocks for deep
+learning applications.
+
+oneDNN is intended for deep learning applications and framework
+developers interested in improving application performance.
+Deep learning practitioners should use one of the applications
+enabled with oneDNN.
+
+
+In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
+
+
+For more information please read oneDNN developer guide:
+https://oneapi-src.github.io/oneDNN/
+
+
 Current build status
 ====================
 
@@ -137,6 +163,13 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
+              <td>linux_64_dnnl_cpu_runtimedpcpp</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_dnnl_cpu_runtimedpcpp" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>linux_64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
@@ -244,6 +277,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--omp-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-omp.svg)](https://anaconda.org/conda-forge/onednn-cpu-omp) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--tbb-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-tbb.svg)](https://anaconda.org/conda-forge/onednn-cpu-tbb) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--cpu--threadpool-green.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-cpu-threadpool.svg)](https://anaconda.org/conda-forge/onednn-cpu-threadpool) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-onednn--dpcpp-green.svg)](https://anaconda.org/conda-forge/onednn-dpcpp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/onednn-dpcpp.svg)](https://anaconda.org/conda-forge/onednn-dpcpp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/onednn-dpcpp.svg)](https://anaconda.org/conda-forge/onednn-dpcpp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/onednn-dpcpp.svg)](https://anaconda.org/conda-forge/onednn-dpcpp) |
 
 Installing onednn
 =================
@@ -255,16 +289,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-omp, onednn-cpu-tbb, onednn-cpu-threadpool` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-omp, onednn-cpu-tbb, onednn-cpu-threadpool, onednn-dpcpp` can be installed with `conda`:
 
 ```
-conda install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool
+conda install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-dpcpp
 ```
 
 or with `mamba`:
 
 ```
-mamba install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool
+mamba install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-dpcpp
 ```
 
 It is possible to list all of the versions of `onednn` available on your platform with `conda`:
@@ -311,7 +345,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
