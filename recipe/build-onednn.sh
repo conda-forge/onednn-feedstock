@@ -4,6 +4,9 @@ set -exuo pipefail
 
 if [[ "${target_platform}" == "linux-64" ]]; then
   export LDFLAGS="-lrt ${LDFLAGS}"
+elif [[ "${target_platform}" == "linux-ppc64le" ]]; then
+  export CFLAGS="${CFLAGS//-fno-plt/}"
+  export CXXFLAGS="${CXXFLAGS//-fno-plt/}"
 fi
 
 mkdir build
