@@ -12,7 +12,7 @@ source:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -54,17 +54,17 @@ outputs:
           Deep learning practitioners should use one of the applications
           enabled with oneDNN.
 
-      {% if dnnl_cpu_runtime == "omp" %}
+          {% if dnnl_cpu_runtime == "omp" %}
           In this package oneDNN is built with the OpenMP CPU runtime.
-      {% elif dnnl_cpu_runtime == "tbb" %}
+          {% elif dnnl_cpu_runtime == "tbb" %}
           In this package oneDNN is built with the TBB CPU runtime.
-      {% elif dnnl_cpu_runtime == "threadpool" %}
+          {% elif dnnl_cpu_runtime == "threadpool" %}
           In this package oneDNN is built with the Threadpool CPU runtime.
           oneDNN requires the user to implement a Threadpool interface to enable
           the library to perform computations using multiple threads.
-      {% elif dnnl_cpu_runtime == "dpcpp" %}
+          {% elif dnnl_cpu_runtime == "dpcpp" %}
           In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
-      {% endif %}
+          {% endif %}
 
           For more information please read oneDNN developer guide:
           https://oneapi-src.github.io/oneDNN/
@@ -106,17 +106,17 @@ outputs:
           Deep learning practitioners should use one of the applications
           enabled with oneDNN.
 
-      {% if dnnl_cpu_runtime == "omp" %}
+          {% if dnnl_cpu_runtime == "omp" %}
           In this package oneDNN is built with the OpenMP CPU runtime.
-      {% elif dnnl_cpu_runtime == "tbb" %}
+          {% elif dnnl_cpu_runtime == "tbb" %}
           In this package oneDNN is built with the TBB CPU runtime.
-      {% elif dnnl_cpu_runtime == "threadpool" %}
+          {% elif dnnl_cpu_runtime == "threadpool" %}
           In this package oneDNN is built with the Threadpool CPU runtime.
           oneDNN requires the user to implement a Threadpool interface to enable
           the library to perform computations using multiple threads.
-      {% elif dnnl_cpu_runtime == "dpcpp" %}
+          {% elif dnnl_cpu_runtime == "dpcpp" %}
           In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
-      {% endif %}
+          {% endif %}
 
           For more information please read oneDNN developer guide:
           https://oneapi-src.github.io/oneDNN/
