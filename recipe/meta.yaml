@@ -1,5 +1,5 @@
 {% set name = "oneDNN" %}
-{% set version = "3.4" %}
+{% set version = "3.4.1" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 1044dc3655d18de921c98dfc61ad7f65799ba5e897063d4a56d291394e12dcf5
+  sha256: 906559a25581b292352420721112e1656d21029b66e8597816f9e741fbcdeadb
   patches:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: {{ name|lower }}
