@@ -12,7 +12,7 @@ source:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -136,4 +136,4 @@ extra:
   feedstock-name: {{ name|lower }}
   recipe-maintainers:
     - xhochy
-    - igorsafo
+    - densamoilov
