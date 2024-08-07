@@ -34,6 +34,7 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ compiler('dpcpp') }}  # [dnnl_cpu_runtime == "dpcpp"]
+        - {{ stdlib("c") }}
         - llvm-openmp  # [osx]
       host:
         - tbb-devel  # [dnnl_cpu_runtime in ("tbb", "dpcpp")]
