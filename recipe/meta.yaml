@@ -12,7 +12,7 @@ source:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -77,11 +77,7 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\\lib\\dnnl.lib exit 1  # [win]
         - if not exist %LIBRARY_PREFIX%\\include\\dnnl.h exit 1  # [win]
 
-  {% if dnnl_cpu_runtime != "dpcpp" %}
-  - name: onednn-cpu-{{ dnnl_cpu_runtime }}
-  {% else %}
-  - name: onednn-{{ dnnl_cpu_runtime }}
-  {% endif %}
+  - name: onednn-{{ dnnl_cpu_runtime_name }}
     version: {{ version }}
     build:
       string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
