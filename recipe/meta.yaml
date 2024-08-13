@@ -1,5 +1,5 @@
 {% set name = "oneDNN" %}
-{% set version = "3.4.1" %}
+{% set version = "3.5.3" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 906559a25581b292352420721112e1656d21029b66e8597816f9e741fbcdeadb
+  sha256: ddbc26c75978c5e864050f699dbefbf5bff9c0b8d2af827845708e1376471f17
   patches:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: {{ name|lower }}
@@ -34,6 +34,7 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ compiler('dpcpp') }}  # [dnnl_cpu_runtime == "dpcpp"]
+        - {{ stdlib("c") }}
         - llvm-openmp  # [osx]
       host:
         - tbb-devel  # [dnnl_cpu_runtime in ("tbb", "dpcpp")]
