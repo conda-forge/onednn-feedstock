@@ -10,9 +10,14 @@ cxx_compiler:
 - vs2019
 dnnl_cpu_runtime:
 - omp
+dnnl_cpu_runtime_name:
+- cpu-omp
 target_platform:
 - win-64
 tbb:
 - '2021'
 tbb_devel:
 - '2021'
+zip_keys:
+- - dnnl_cpu_runtime_name
+  - dnnl_cpu_runtime

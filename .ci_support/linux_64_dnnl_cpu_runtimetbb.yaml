@@ -18,6 +18,8 @@ cxx_compiler_version:
 - '12'
 dnnl_cpu_runtime:
 - tbb
+dnnl_cpu_runtime_name:
+- cpu-tbb
 docker_image:
 - quay.io/condaforge/linux-anvil-alma-x86_64:8
 target_platform:
@@ -31,3 +33,5 @@ zip_keys:
   - cxx_compiler_version
 - - c_stdlib_version
   - cdt_name
+- - dnnl_cpu_runtime_name
+  - dnnl_cpu_runtime

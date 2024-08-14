@@ -20,6 +20,8 @@ cxx_compiler_version:
 - '16'
 dnnl_cpu_runtime:
 - tbb
+dnnl_cpu_runtime_name:
+- cpu-tbb
 llvm_openmp:
 - '16'
 macos_machine:
@@ -33,3 +35,5 @@ tbb_devel:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - dnnl_cpu_runtime_name
+  - dnnl_cpu_runtime
