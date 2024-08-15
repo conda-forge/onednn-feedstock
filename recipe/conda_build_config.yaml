@@ -7,3 +7,14 @@ dnnl_cpu_runtime:
   - omp
   - threadpool # [not (ppc64le or aarch64 or arm64)]
   - dpcpp # [x86_64 and linux64]
+
+dnnl_cpu_runtime_name:
+  - cpu-tbb  # [not (ppc64le or aarch64)]
+  - cpu-omp
+  - cpu-threadpool # [not (ppc64le or aarch64 or arm64)]
+  - dpcpp # [x86_64 and linux64]
+
+zip_keys:
+  -
+    - dnnl_cpu_runtime_name
+    - dnnl_cpu_runtime
