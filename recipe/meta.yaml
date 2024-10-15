@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 20c4a92cc0ae0dc19d3d2beca0e357b1d13a5a3af9890a2cc3e41a880e4a0302
-  patches:
-    - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
   number: 0
