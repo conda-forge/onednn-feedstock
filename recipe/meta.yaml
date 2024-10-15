@@ -1,5 +1,5 @@
 {% set name = "oneDNN" %}
-{% set version = "3.5.3" %}
+{% set version = "3.6" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: ddbc26c75978c5e864050f699dbefbf5bff9c0b8d2af827845708e1376471f17
+  sha256: 20c4a92cc0ae0dc19d3d2beca0e357b1d13a5a3af9890a2cc3e41a880e4a0302
   patches:
     - 0001-Add-TBB-tbb-to-TBB_IMPORTED_TARGETS.patch
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: {{ name|lower }}
@@ -46,29 +46,29 @@ outputs:
         - LICENSE
       summary: oneAPI Deep Neural Network Library (oneDNN)
       description: |
-          oneAPI Deep Neural Network Library (oneDNN) is an open-source
-          cross-platform performance library of basic building blocks for deep
-          learning applications.
+        oneAPI Deep Neural Network Library (oneDNN) is an open-source
+        cross-platform performance library of basic building blocks for deep
+        learning applications.
 
-          oneDNN is intended for deep learning applications and framework
-          developers interested in improving application performance.
-          Deep learning practitioners should use one of the applications
-          enabled with oneDNN.
+        oneDNN is intended for deep learning applications and framework
+        developers interested in improving application performance.
+        Deep learning practitioners should use one of the applications
+        enabled with oneDNN.
 
-          {% if dnnl_cpu_runtime == "omp" %}
-          In this package oneDNN is built with the OpenMP CPU runtime.
-          {% elif dnnl_cpu_runtime == "tbb" %}
-          In this package oneDNN is built with the TBB CPU runtime.
-          {% elif dnnl_cpu_runtime == "threadpool" %}
-          In this package oneDNN is built with the Threadpool CPU runtime.
-          oneDNN requires the user to implement a Threadpool interface to enable
-          the library to perform computations using multiple threads.
-          {% elif dnnl_cpu_runtime == "dpcpp" %}
-          In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
-          {% endif %}
+        {% if dnnl_cpu_runtime == "omp" %}
+        In this package oneDNN is built with the OpenMP CPU runtime.
+        {% elif dnnl_cpu_runtime == "tbb" %}
+        In this package oneDNN is built with the TBB CPU runtime.
+        {% elif dnnl_cpu_runtime == "threadpool" %}
+        In this package oneDNN is built with the Threadpool CPU runtime.
+        oneDNN requires the user to implement a Threadpool interface to enable
+        the library to perform computations using multiple threads.
+        {% elif dnnl_cpu_runtime == "dpcpp" %}
+        In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
+        {% endif %}
 
-          For more information please read oneDNN developer guide:
-          https://oneapi-src.github.io/oneDNN/
+        For more information please read oneDNN developer guide:
+        https://oneapi-src.github.io/oneDNN/
     test:
       commands:
         - test -f ${PREFIX}/lib/libdnnl${SHLIB_EXT}  # [unix]
@@ -94,29 +94,29 @@ outputs:
       license_file: LICENSE
       summary: oneAPI Deep Neural Network Library (oneDNN)
       description: |
-          oneAPI Deep Neural Network Library (oneDNN) is an open-source
-          cross-platform performance library of basic building blocks for deep
-          learning applications.
+        oneAPI Deep Neural Network Library (oneDNN) is an open-source
+        cross-platform performance library of basic building blocks for deep
+        learning applications.
 
-          oneDNN is intended for deep learning applications and framework
-          developers interested in improving application performance.
-          Deep learning practitioners should use one of the applications
-          enabled with oneDNN.
+        oneDNN is intended for deep learning applications and framework
+        developers interested in improving application performance.
+        Deep learning practitioners should use one of the applications
+        enabled with oneDNN.
 
-          {% if dnnl_cpu_runtime == "omp" %}
-          In this package oneDNN is built with the OpenMP CPU runtime.
-          {% elif dnnl_cpu_runtime == "tbb" %}
-          In this package oneDNN is built with the TBB CPU runtime.
-          {% elif dnnl_cpu_runtime == "threadpool" %}
-          In this package oneDNN is built with the Threadpool CPU runtime.
-          oneDNN requires the user to implement a Threadpool interface to enable
-          the library to perform computations using multiple threads.
-          {% elif dnnl_cpu_runtime == "dpcpp" %}
-          In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
-          {% endif %}
+        {% if dnnl_cpu_runtime == "omp" %}
+        In this package oneDNN is built with the OpenMP CPU runtime.
+        {% elif dnnl_cpu_runtime == "tbb" %}
+        In this package oneDNN is built with the TBB CPU runtime.
+        {% elif dnnl_cpu_runtime == "threadpool" %}
+        In this package oneDNN is built with the Threadpool CPU runtime.
+        oneDNN requires the user to implement a Threadpool interface to enable
+        the library to perform computations using multiple threads.
+        {% elif dnnl_cpu_runtime == "dpcpp" %}
+        In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
+        {% endif %}
 
-          For more information please read oneDNN developer guide:
-          https://oneapi-src.github.io/oneDNN/
+        For more information please read oneDNN developer guide:
+        https://oneapi-src.github.io/oneDNN/
     test:
       commands:
         - exit 0
