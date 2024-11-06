@@ -394,5 +394,8 @@ Feedstock Maintainers
 =====================
 
 * [@densamoilov](https://github.com/densamoilov/)
+* [@dzarukin](https://github.com/dzarukin/)
+* [@mgouicem](https://github.com/mgouicem/)
+* [@vpirogov](https://github.com/vpirogov/)
+* [@avmanerikar](https://github.com/avmanerikar/)
 * [@xhochy](https://github.com/xhochy/)
-
