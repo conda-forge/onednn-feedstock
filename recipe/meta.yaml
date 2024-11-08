@@ -2,7 +2,7 @@
 {% set version = "3.6" %}
 
 package:
-  name: {{ name|lower }}-split
+  name: onednn-split
   version: {{ version }}
 
 source:
@@ -13,7 +13,7 @@ build:
   number: 0
 
 outputs:
-  - name: {{ name|lower }}
+  - name: onednn
     script: build-onednn.sh  # [not win]
     script: bld-onednn.bat  # [win]
     version: {{ version }}
@@ -128,7 +128,7 @@ about:
   summary: oneAPI Deep Neural Network Library (oneDNN)
 
 extra:
-  feedstock-name: {{ name|lower }}
+  feedstock-name: onednn
   recipe-maintainers:
     - xhochy
     - densamoilov
