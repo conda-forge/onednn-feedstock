@@ -1,5 +1,5 @@
 {% set name = "oneDNN" %}
-{% set version = "3.6" %}
+{% set version = "3.6.1" %}
 
 package:
   name: onednn-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/oneapi-src/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 20c4a92cc0ae0dc19d3d2beca0e357b1d13a5a3af9890a2cc3e41a880e4a0302
+  sha256: a370e7f25dbf05c9c151878c53556f27d0cbe7a4f909747db6e4b2d245f533cb
 
 build:
   number: 0
