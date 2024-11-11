@@ -26,11 +26,17 @@ elif [[ "${dnnl_cpu_runtime}" == "dpcpp" ]]; then
   DNNL_GPU_RUNTIME="DPCPP"
 fi
 
+DNNL_EXPERIMENTAL_UKERNEL=OFF
 # DNNL_EXPERIMENTAL_UKERNEL required by PyTorch
+# However, it requires routines implemented for x64 only.
+case ${target_platform} in
+  linux-64|osx-64)
+    DNNL_EXPERIMENTAL_UKERNEL=ON;;
+esac
 cmake ${CMAKE_ARGS} -GNinja \
   -DDNNL_CPU_RUNTIME=${DNNL_CPU_RUNTIME} \
   -DDNNL_GPU_RUNTIME=${DNNL_GPU_RUNTIME} \
-  -DDNNL_EXPERIMENTAL_UKERNEL=ON \
+  -DDNNL_EXPERIMENTAL_UKERNEL=${DNNL_EXPERIMENTAL_UKERNEL} \
   ..
 ninja install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
