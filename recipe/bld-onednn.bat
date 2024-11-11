@@ -23,10 +23,12 @@ if [%dnnl_cpu_runtime%]==[dpcpp] (
     set "INCLUDE=%BUILD_PREFIX%\include;%INCLUDE%"
     )
 
+:: DNNL_EXPERIMENTAL_UKERNEL required by PyTorch
 cmake -GNinja %CMAKE_ARGS% ^
   -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
   -DDNNL_CPU_RUNTIME=%DNNL_CPU_RUNTIME% ^
   -DDNNL_GPU_RUNTIME=%DNNL_GPU_RUNTIME% ^
+  -DDNNL_EXPERIMENTAL_UKERNEL=ON ^
   ..
 if errorlevel 1 exit 1
 ninja install
