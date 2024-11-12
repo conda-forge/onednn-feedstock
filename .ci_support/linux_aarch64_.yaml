@@ -24,6 +24,8 @@ dnnl_cpu_runtime:
 - omp
 dnnl_cpu_runtime_name:
 - cpu-omp
+dnnl_experimental_ukernel:
+- 'no'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 target_platform:
@@ -35,3 +37,4 @@ zip_keys:
   - cxx_compiler_version
 - - dnnl_cpu_runtime_name
   - dnnl_cpu_runtime
+  - dnnl_experimental_ukernel
