@@ -5,16 +5,26 @@ docker_image:                                  # [x86_64 and linux64]
 dnnl_cpu_runtime:
   - tbb  # [not (ppc64le or aarch64)]
   - omp
+  - omp  # [x86_64]
   - threadpool # [not (ppc64le or aarch64 or arm64)]
   - dpcpp # [x86_64 and linux64]
 
 dnnl_cpu_runtime_name:
   - cpu-tbb  # [not (ppc64le or aarch64)]
   - cpu-omp
+  - cpu-omp  # [x86_64]
   - cpu-threadpool # [not (ppc64le or aarch64 or arm64)]
   - dpcpp # [x86_64 and linux64]
+
+dnnl_experimental_ukernel:
+  - no   # [not (ppc64le or aarch64)]
+  - no
+  - yes  # [x86_64]
+  - no   # [not (ppc64le or aarch64 or arm64)]
+  - no   # [x86_64 and linux64]
 
 zip_keys:
   -
     - dnnl_cpu_runtime_name
     - dnnl_cpu_runtime
+    - dnnl_experimental_ukernel
