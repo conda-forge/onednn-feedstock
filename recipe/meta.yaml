@@ -21,7 +21,7 @@ outputs:
       string: {{ dnnl_cpu_runtime }}_experimental_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [dnnl_experimental_ukernel == "yes"]
       string: {{ dnnl_cpu_runtime }}_stable_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [dnnl_experimental_ukernel == "no"]
       run_exports:
-        - {{ pin_subpackage("onednn", min_pin="x.x.x", max_pin="x.x.x") }}  # [dnnl_experimental_ukernel == "yes"]
+        - {{ pin_subpackage("onednn", max_pin="x.x.x") }}  # [dnnl_experimental_ukernel == "yes"]
         - {{ pin_subpackage("onednn", max_pin="x") }}  # [dnnl_experimental_ukernel == "no"]
       track_features:
       {% if dnnl_cpu_runtime != "omp" %}
