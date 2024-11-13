@@ -23,6 +23,7 @@ outputs:
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x.x.x") }}  # [dnnl_experimental_ukernel == "yes"]
         - {{ pin_subpackage("onednn", max_pin="x") }}  # [dnnl_experimental_ukernel == "no"]
+        - onednn {{ PKG_VERSION }} *_experimental_*
       track_features:
       {% if dnnl_cpu_runtime != "omp" %}
         - onednn-{{ dnnl_cpu_runtime }}
