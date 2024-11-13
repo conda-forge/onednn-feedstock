@@ -29,6 +29,7 @@ fi
 cmake ${CMAKE_ARGS} -GNinja \
   -DDNNL_CPU_RUNTIME=${DNNL_CPU_RUNTIME} \
   -DDNNL_GPU_RUNTIME=${DNNL_GPU_RUNTIME} \
+  -DDNNL_EXPERIMENTAL_UKERNEL=${dnnl_experimental_ukernel} \
   ..
 ninja install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then

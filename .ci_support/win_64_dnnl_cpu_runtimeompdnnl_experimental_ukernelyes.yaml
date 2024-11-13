@@ -1,36 +1,26 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '13'
+- vs2019
 c_stdlib:
-- sysroot
-c_stdlib_version:
-- '2.17'
-cdt_name:
-- conda
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
-cxx_compiler_version:
-- '13'
+- vs2019
 dnnl_cpu_runtime:
 - omp
 dnnl_cpu_runtime_name:
 - cpu-omp
 dnnl_experimental_ukernel:
-- 'no'
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- 'yes'
 target_platform:
-- linux-ppc64le
+- win-64
 tbb:
 - '2021'
+tbb_devel:
+- '2021'
 zip_keys:
-- - c_compiler_version
-  - cxx_compiler_version
 - - dnnl_cpu_runtime_name
   - dnnl_cpu_runtime
   - dnnl_experimental_ukernel

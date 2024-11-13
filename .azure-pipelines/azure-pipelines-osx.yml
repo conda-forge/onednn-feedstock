@@ -8,14 +8,17 @@ jobs:
     vmImage: macOS-13
   strategy:
     matrix:
-      osx_64_dnnl_cpu_runtimeomp:
-        CONFIG: osx_64_dnnl_cpu_runtimeomp
+      osx_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelno:
+        CONFIG: osx_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelno
         UPLOAD_PACKAGES: 'True'
-      osx_64_dnnl_cpu_runtimetbb:
-        CONFIG: osx_64_dnnl_cpu_runtimetbb
+      osx_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelyes:
+        CONFIG: osx_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelyes
         UPLOAD_PACKAGES: 'True'
-      osx_64_dnnl_cpu_runtimethreadpool:
-        CONFIG: osx_64_dnnl_cpu_runtimethreadpool
+      osx_64_dnnl_cpu_runtimetbbdnnl_experimental_ukernelno:
+        CONFIG: osx_64_dnnl_cpu_runtimetbbdnnl_experimental_ukernelno
+        UPLOAD_PACKAGES: 'True'
+      osx_64_dnnl_cpu_runtimethreadpooldnnl_experimental_ukernelno:
+        CONFIG: osx_64_dnnl_cpu_runtimethreadpooldnnl_experimental_ukernelno
         UPLOAD_PACKAGES: 'True'
       osx_arm64_dnnl_cpu_runtimeomp:
         CONFIG: osx_arm64_dnnl_cpu_runtimeomp

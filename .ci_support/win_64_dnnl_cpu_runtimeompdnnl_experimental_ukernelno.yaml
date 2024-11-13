@@ -9,9 +9,11 @@ channel_targets:
 cxx_compiler:
 - vs2019
 dnnl_cpu_runtime:
-- tbb
+- omp
 dnnl_cpu_runtime_name:
-- cpu-tbb
+- cpu-omp
+dnnl_experimental_ukernel:
+- 'no'
 target_platform:
 - win-64
 tbb:
@@ -21,3 +23,4 @@ tbb_devel:
 zip_keys:
 - - dnnl_cpu_runtime_name
   - dnnl_cpu_runtime
+  - dnnl_experimental_ukernel

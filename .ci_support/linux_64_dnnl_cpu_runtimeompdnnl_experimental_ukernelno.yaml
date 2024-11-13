@@ -1,33 +1,31 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '10.13'
-MACOSX_SDK_VERSION:
-- '10.13'
 c_compiler:
-- clang
+- gcc
 c_compiler_version:
-- '18'
+- '13'
 c_stdlib:
-- macosx_deployment_target
+- sysroot
 c_stdlib_version:
-- '10.13'
+- '2.17'
+cdt_name:
+- conda
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- clangxx
+- gxx
 cxx_compiler_version:
-- '18'
+- '13'
 dnnl_cpu_runtime:
 - omp
 dnnl_cpu_runtime_name:
 - cpu-omp
-llvm_openmp:
-- '18'
-macos_machine:
-- x86_64-apple-darwin13.4.0
+dnnl_experimental_ukernel:
+- 'no'
+docker_image:
+- quay.io/condaforge/linux-anvil-alma-x86_64:8
 target_platform:
-- osx-64
+- linux-64
 tbb:
 - '2021'
 tbb_devel:
@@ -37,3 +35,4 @@ zip_keys:
   - cxx_compiler_version
 - - dnnl_cpu_runtime_name
   - dnnl_cpu_runtime
+  - dnnl_experimental_ukernel

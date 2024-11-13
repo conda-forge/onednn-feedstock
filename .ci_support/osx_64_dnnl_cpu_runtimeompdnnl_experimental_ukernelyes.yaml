@@ -19,9 +19,11 @@ cxx_compiler:
 cxx_compiler_version:
 - '18'
 dnnl_cpu_runtime:
-- tbb
+- omp
 dnnl_cpu_runtime_name:
-- cpu-tbb
+- cpu-omp
+dnnl_experimental_ukernel:
+- 'yes'
 llvm_openmp:
 - '18'
 macos_machine:
@@ -37,3 +39,4 @@ zip_keys:
   - cxx_compiler_version
 - - dnnl_cpu_runtime_name
   - dnnl_cpu_runtime
+  - dnnl_experimental_ukernel

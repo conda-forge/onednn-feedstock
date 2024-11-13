@@ -7,7 +7,7 @@ c_stdlib:
 c_stdlib_version:
 - '2.17'
 cdt_name:
-- cos7
+- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -17,9 +17,11 @@ cxx_compiler:
 cxx_compiler_version:
 - '13'
 dnnl_cpu_runtime:
-- tbb
+- threadpool
 dnnl_cpu_runtime_name:
-- cpu-tbb
+- cpu-threadpool
+dnnl_experimental_ukernel:
+- 'no'
 docker_image:
 - quay.io/condaforge/linux-anvil-alma-x86_64:8
 target_platform:
@@ -31,7 +33,6 @@ tbb_devel:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - c_stdlib_version
-  - cdt_name
 - - dnnl_cpu_runtime_name
   - dnnl_cpu_runtime
+  - dnnl_experimental_ukernel

@@ -8,14 +8,17 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_dnnl_cpu_runtimeomp:
-        CONFIG: win_64_dnnl_cpu_runtimeomp
+      win_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelno:
+        CONFIG: win_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelno
         UPLOAD_PACKAGES: 'True'
-      win_64_dnnl_cpu_runtimetbb:
-        CONFIG: win_64_dnnl_cpu_runtimetbb
+      win_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelyes:
+        CONFIG: win_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelyes
         UPLOAD_PACKAGES: 'True'
-      win_64_dnnl_cpu_runtimethreadpool:
-        CONFIG: win_64_dnnl_cpu_runtimethreadpool
+      win_64_dnnl_cpu_runtimetbbdnnl_experimental_ukernelno:
+        CONFIG: win_64_dnnl_cpu_runtimetbbdnnl_experimental_ukernelno
+        UPLOAD_PACKAGES: 'True'
+      win_64_dnnl_cpu_runtimethreadpooldnnl_experimental_ukernelno:
+        CONFIG: win_64_dnnl_cpu_runtimethreadpooldnnl_experimental_ukernelno
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
