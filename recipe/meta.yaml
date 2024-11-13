@@ -18,7 +18,8 @@ outputs:
     script: bld-onednn.bat  # [win]
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}{{ dnnl_experimental_ukernel }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_experimental_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [dnnl_experimental_ukernel == "yes"]
+      string: {{ dnnl_cpu_runtime }}_stable_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [dnnl_experimental_ukernel == "no"]
       run_exports:
         - {{ pin_subpackage("onednn", max_pin="x") }}
       {% if dnnl_cpu_runtime != "omp" %}
