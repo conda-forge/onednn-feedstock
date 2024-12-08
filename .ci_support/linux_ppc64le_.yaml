@@ -7,7 +7,7 @@ c_stdlib:
 c_stdlib_version:
 - '2.17'
 cdt_name:
-- cos7
+- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -21,7 +21,7 @@ dnnl_cpu_runtime:
 dnnl_cpu_runtime_name:
 - cpu-omp
 docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- quay.io/condaforge/linux-anvil-x86_64:alma9
 target_platform:
 - linux-ppc64le
 tbb:
@@ -29,7 +29,5 @@ tbb:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - c_stdlib_version
-  - cdt_name
 - - dnnl_cpu_runtime_name
   - dnnl_cpu_runtime
