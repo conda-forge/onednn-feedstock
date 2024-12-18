@@ -14,8 +14,6 @@ dnnl_cpu_runtime_name:
 - cpu-tbb
 target_platform:
 - win-64
-tbb:
-- '2021'
 tbb_devel:
 - '2021'
 zip_keys:
