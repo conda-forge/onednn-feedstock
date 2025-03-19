@@ -8,20 +8,24 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_dnnl_cpu_runtimedpcpp:
-        CONFIG: linux_64_dnnl_cpu_runtimedpcpp
+      linux_64_dnnl_cpu_runtimedpcppdnnl_experimental_ukernelno:
+        CONFIG: linux_64_dnnl_cpu_runtimedpcppdnnl_experimental_ukernelno
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
-      linux_64_dnnl_cpu_runtimeomp:
-        CONFIG: linux_64_dnnl_cpu_runtimeomp
+      linux_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelno:
+        CONFIG: linux_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelno
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
-      linux_64_dnnl_cpu_runtimetbb:
-        CONFIG: linux_64_dnnl_cpu_runtimetbb
+      linux_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelyes:
+        CONFIG: linux_64_dnnl_cpu_runtimeompdnnl_experimental_ukernelyes
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
-      linux_64_dnnl_cpu_runtimethreadpool:
-        CONFIG: linux_64_dnnl_cpu_runtimethreadpool
+      linux_64_dnnl_cpu_runtimetbbdnnl_experimental_ukernelno:
+        CONFIG: linux_64_dnnl_cpu_runtimetbbdnnl_experimental_ukernelno
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
+      linux_64_dnnl_cpu_runtimethreadpooldnnl_experimental_ukernelno:
+        CONFIG: linux_64_dnnl_cpu_runtimethreadpooldnnl_experimental_ukernelno
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-alma-x86_64:8
       linux_aarch64_:
