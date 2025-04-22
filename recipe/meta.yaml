@@ -10,7 +10,7 @@ source:
   sha256: 071f289dc961b43a3b7c8cbe8a305290a7c5d308ec4b2f586397749abdc88296
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: onednn
@@ -18,12 +18,18 @@ outputs:
     script: bld-onednn.bat  # [win]
     version: {{ version }}
     build:
-      string: {{ dnnl_cpu_runtime }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+      string: {{ dnnl_cpu_runtime }}_experimental_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [dnnl_experimental_ukernel == "yes"]
+      string: {{ dnnl_cpu_runtime }}_stable_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [dnnl_experimental_ukernel == "no"]
       run_exports:
-        - {{ pin_subpackage("onednn", max_pin="x") }}
-      {% if dnnl_cpu_runtime != "omp" %}
+        - {{ pin_subpackage("onednn", max_pin="x.x.x") }}  # [dnnl_experimental_ukernel == "yes"]
+        - {{ pin_subpackage("onednn", max_pin="x") }}  # [dnnl_experimental_ukernel == "no"]
+        - onednn {{ PKG_VERSION }} *_experimental_*  # [dnnl_experimental_ukernel == "yes"]
       track_features:
+      {% if dnnl_cpu_runtime != "omp" %}
         - onednn-{{ dnnl_cpu_runtime }}
+      {% endif %}
+      {% if dnnl_experimental_ukernel != "no" %}
+        - onednn-experimental
       {% endif %}
     requirements:
       build:
