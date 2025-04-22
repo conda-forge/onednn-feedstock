@@ -32,7 +32,9 @@ Deep learning practitioners should use one of the applications
 enabled with oneDNN.
 
 
-In this package oneDNN is built with the OpenMP CPU runtime.
+In this package oneDNN is built with the Threadpool CPU runtime.
+oneDNN requires the user to implement a Threadpool interface to enable
+the library to perform computations using multiple threads.
 
 
 For more information please read oneDNN developer guide:
