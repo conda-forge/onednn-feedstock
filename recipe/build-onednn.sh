@@ -39,6 +39,8 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
   fi
   # GPU tests are skipped due to lack of GPU installed on the test systems
   # Gtests are sufficient to make sure the library is built correctly
-  ctest --output-on-failure -E "gpu|benchdnn"
+  # test_graph_unit_dnnl_sdp_decomp_cpu is very time consuming and might
+  # timeout on TBB configurations
+  ctest --output-on-failure -E "gpu|benchdnn|test_graph_unit_dnnl_sdp_decomp_cpu"
 fi
 popd
