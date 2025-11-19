@@ -1,7 +1,7 @@
 context:
   name: oneDNN
-  version: "3.10"
-  build: 1
+  version: "3.10.1"
+  build: 0
   desc_omp: In this package oneDNN is built with the OpenMP CPU runtime.
   desc_tbb: In this package oneDNN is built with the TBB CPU runtime.
   desc_threadpool: |
@@ -16,7 +16,7 @@ recipe:
 
 source:
   url: https://github.com/oneapi-src/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: ba5834a1fdbb6d1c1b1c065dfd789438e7aa42c03fc52d92c02af85d78d1c75c
+  sha256: d89998bfae2f33c209e216e3d3a8d280ed6eb65a57971dfb4dcfa56beac9571b
 
 build:
   number: ${{ build }}
