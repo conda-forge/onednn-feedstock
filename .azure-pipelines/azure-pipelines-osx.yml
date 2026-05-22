@@ -12,22 +12,27 @@ jobs:
         CONFIG: osx_64_dnnl_cpu_runtimeomp
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
+        store_build_artifacts: false
       osx_64_dnnl_cpu_runtimetbb:
         CONFIG: osx_64_dnnl_cpu_runtimetbb
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
+        store_build_artifacts: false
       osx_64_dnnl_cpu_runtimethreadpool:
         CONFIG: osx_64_dnnl_cpu_runtimethreadpool
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
+        store_build_artifacts: false
       osx_arm64_dnnl_cpu_runtimeomp:
         CONFIG: osx_arm64_dnnl_cpu_runtimeomp
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
+        store_build_artifacts: false
       osx_arm64_dnnl_cpu_runtimetbb:
         CONFIG: osx_arm64_dnnl_cpu_runtimetbb
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
+        store_build_artifacts: false
   timeoutInMinutes: 360
   variables: {}
 

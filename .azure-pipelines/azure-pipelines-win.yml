@@ -11,12 +11,15 @@ jobs:
       win_64_dnnl_cpu_runtimeomp:
         CONFIG: win_64_dnnl_cpu_runtimeomp
         UPLOAD_PACKAGES: 'True'
+        store_build_artifacts: false
       win_64_dnnl_cpu_runtimetbb:
         CONFIG: win_64_dnnl_cpu_runtimetbb
         UPLOAD_PACKAGES: 'True'
+        store_build_artifacts: false
       win_64_dnnl_cpu_runtimethreadpool:
         CONFIG: win_64_dnnl_cpu_runtimethreadpool
         UPLOAD_PACKAGES: 'True'
+        store_build_artifacts: false
   timeoutInMinutes: 360
   variables:
     CONDA_BLD_PATH: D:\\bld\\
