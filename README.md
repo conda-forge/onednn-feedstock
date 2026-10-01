@@ -27,6 +27,32 @@ In this package oneDNN is built with the OpenMP CPU runtime.
 For more information please read oneDNN developer guide:
 https://oneapi-src.github.io/oneDNN/
 
+About onednn
+------------
+
+Home: https://github.com/oneapi-src/oneDNN
+
+Package license: Apache-2.0
+
+Summary: oneAPI Deep Neural Network Library (oneDNN)
+
+oneAPI Deep Neural Network Library (oneDNN) is an open-source
+cross-platform performance library of basic building blocks for deep
+learning applications.
+
+oneDNN is intended for deep learning applications and framework
+developers interested in improving application performance.
+Deep learning practitioners should use one of the applications
+enabled with oneDNN.
+
+In this package oneDNN is built with the Threadpool CPU runtime.
+oneDNN requires the user to implement a Threadpool interface to enable
+the library to perform computations using multiple threads.
+
+
+For more information please read oneDNN developer guide:
+https://oneapi-src.github.io/oneDNN/
+
 About onednn-cpu-omp
 --------------------
 
@@ -168,24 +194,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_dnnl_cpu_runtimeomp</td>
+              <td>osx_arm64_dnnl_cpu_runtimeomp</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win%20win_64_dnnl_cpu_runtimeomp" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_dnnl_cpu_runtimeomp" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_dnnl_cpu_runtimetbb</td>
+              <td>osx_arm64_dnnl_cpu_runtimetbb</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win%20win_64_dnnl_cpu_runtimetbb" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_dnnl_cpu_runtimethreadpool</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12239&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=win&configuration=win%20win_64_dnnl_cpu_runtimethreadpool" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/onednn-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_dnnl_cpu_runtimetbb" alt="variant">
                 </a>
               </td>
             </tr>
@@ -217,31 +236,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `onednn, onednn-cpu-omp, onednn-cpu-tbb, onednn-cpu-threadpool, onednn-dpcpp` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-dpcpp
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-dpcpp
 ```
 
-It is possible to list all of the versions of `onednn` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-dpcpp
+# for installing globally
+pixi global install onednn onednn-cpu-omp onednn-cpu-tbb onednn-cpu-threadpool onednn-dpcpp
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `onednn` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search onednn --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search onednn --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search onednn --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -253,6 +314,8 @@ mamba repoquery whoneeds onednn --channel conda-forge
 # List dependencies of `onednn`:
 mamba repoquery depends onednn --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -322,6 +385,6 @@ Feedstock Maintainers
 =====================
 
 * [@densamoilov](https://github.com/densamoilov/)
-* [@spalicki](https://github.com/spalicki/)
+* [@mzhukova](https://github.com/mzhukova/)
 * [@xhochy](https://github.com/xhochy/)
 
