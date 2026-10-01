@@ -134,6 +134,7 @@ about:
 extra:
   feedstock-name: onednn
   recipe-maintainers:
+    - mzhukova
     - xhochy
     - densamoilov
     - spalicki
