@@ -14,6 +14,9 @@ dnnl_cpu_runtime_name:
   - cpu-threadpool # [not (ppc64le or aarch64 or arm64)]
   - dpcpp # [x86_64 and linux64]
 
+c_stdlib_version:  # [linux64]
+  - "2.28"         # [linux64]
+
 zip_keys:
   -
     - dnnl_cpu_runtime_name
