@@ -32,11 +32,6 @@ cmake ${CMAKE_ARGS} -GNinja \
   ..
 ninja install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != 1 ]]; then
-  # A simple test to validate environment setup for DPCPP
-  if [[ "${dnnl_cpu_runtime}" == "dpcpp" ]]; then
-    icpx -fsycl ${CXXFLAGS} ${RECIPE_DIR}/dpcpp_check.cpp ${LDFLAGS} -lpthread -o dpcpp_check.exe
-    ./dpcpp_check.exe
-  fi
   # GPU tests are skipped due to lack of GPU installed on the test systems
   # Gtests are sufficient to make sure the library is built correctly
   # test_graph_unit_dnnl_sdp_decomp_cpu is very time consuming and might

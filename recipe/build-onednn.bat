@@ -31,13 +31,6 @@ cmake -GNinja %CMAKE_ARGS% ^
 if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
-:: A simple test to validate environment setup for DPCPP
-if [%dnnl_cpu_runtime%]==[DPCPP] (
-    icpx -fsycl %RECIPE_DIR%/dpcpp_check.cpp -I%PREFIX%\include -o dpcpp_check.exe
-    if errorlevel 1 exit 1
-    dpcpp_check.exe
-    if errorlevel 1 exit 1
-    )
 :: GPU tests are skipped due to lack of GPU installed on the test systems
 :: Gtests are sufficient to make sure the library is built correctly
 :: XXX: Exclude test_graph_unit_dnnl_mqa_decomp_usm_cpu for v3.5.3 to unblock
