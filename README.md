@@ -7,146 +7,132 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/onednn-feedstoc
 About onednn
 ------------
 
-Home: https://github.com/oneapi-src/oneDNN
+Home: https://github.com/uxlfoundation/oneDNN
 
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
 
-oneAPI Deep Neural Network Library (oneDNN) is an open-source
-cross-platform performance library of basic building blocks for deep
-learning applications.
+oneDNN is an open-source, cross-platform library of optimized deep
+learning operations for CPUs and GPUs. It provides highly optimized
+implementations of matrix multiplication, convolution, attention,
+normalization, and other operations, and is the acceleration layer
+behind PyTorch, TensorFlow, OpenVINO, and many other AI frameworks.
 
 oneDNN is intended for deep learning applications and framework
-developers interested in improving application performance.
-Deep learning practitioners should use one of the applications
-enabled with oneDNN.
+developers interested in improving application performance on CPUs
+and GPUs. Deep learning practitioners should use one of the
+applications enabled with oneDNN.
 
-In this package oneDNN is built with the OpenMP CPU runtime.
+This package is built in multiple configurations. To select a specific
+configuration install one of onednn-cpu-omp, onednn-cpu-tbb,
+onednn-cpu-threadpool, or onednn-dpcpp packages.
 
-For more information please read oneDNN developer guide:
-https://oneapi-src.github.io/oneDNN/
-
-About onednn
-------------
-
-Home: https://github.com/oneapi-src/oneDNN
-
-Package license: Apache-2.0
-
-Summary: oneAPI Deep Neural Network Library (oneDNN)
-
-oneAPI Deep Neural Network Library (oneDNN) is an open-source
-cross-platform performance library of basic building blocks for deep
-learning applications.
-
-oneDNN is intended for deep learning applications and framework
-developers interested in improving application performance.
-Deep learning practitioners should use one of the applications
-enabled with oneDNN.
-
-In this package oneDNN is built with the Threadpool CPU runtime.
-oneDNN requires the user to implement a Threadpool interface to enable
-the library to perform computations using multiple threads.
-
-
-For more information please read oneDNN developer guide:
-https://oneapi-src.github.io/oneDNN/
+For more information visit oneDNN Github:
+https://github.com/uxlfoundation/oneDNN
 
 About onednn-cpu-omp
 --------------------
 
-Home: https://github.com/oneapi-src/oneDNN
+Home: https://github.com/uxlfoundation/oneDNN
 
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
 
-oneAPI Deep Neural Network Library (oneDNN) is an open-source
-cross-platform performance library of basic building blocks for deep
-learning applications.
+oneDNN is an open-source, cross-platform library of optimized deep
+learning operations for CPUs and GPUs. It provides highly optimized
+implementations of matrix multiplication, convolution, attention,
+normalization, and other operations, and is the acceleration layer
+behind PyTorch, TensorFlow, OpenVINO, and many other AI frameworks.
 
 oneDNN is intended for deep learning applications and framework
-developers interested in improving application performance.
-Deep learning practitioners should use one of the applications
-enabled with oneDNN.
+developers interested in improving application performance on CPUs
+and GPUs. Deep learning practitioners should use one of the
+applications enabled with oneDNN.
 
 In this package oneDNN is built with the OpenMP CPU runtime.
 
-For more information please read oneDNN developer guide:
-https://oneapi-src.github.io/oneDNN/
+For more information visit oneDNN Github:
+https://github.com/uxlfoundation/oneDNN
 
 About onednn-cpu-tbb
 --------------------
 
-Home: https://github.com/oneapi-src/oneDNN
+Home: https://github.com/uxlfoundation/oneDNN
 
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
 
-oneAPI Deep Neural Network Library (oneDNN) is an open-source
-cross-platform performance library of basic building blocks for deep
-learning applications.
+oneDNN is an open-source, cross-platform library of optimized deep
+learning operations for CPUs and GPUs. It provides highly optimized
+implementations of matrix multiplication, convolution, attention,
+normalization, and other operations, and is the acceleration layer
+behind PyTorch, TensorFlow, OpenVINO, and many other AI frameworks.
 
 oneDNN is intended for deep learning applications and framework
-developers interested in improving application performance.
-Deep learning practitioners should use one of the applications
-enabled with oneDNN.
+developers interested in improving application performance on CPUs
+and GPUs. Deep learning practitioners should use one of the
+applications enabled with oneDNN.
 
 In this package oneDNN is built with the TBB CPU runtime.
 
-For more information please read oneDNN developer guide:
-https://oneapi-src.github.io/oneDNN/
+For more information visit oneDNN Github:
+https://github.com/uxlfoundation/oneDNN
 
 About onednn-cpu-threadpool
 ---------------------------
 
-Home: https://github.com/oneapi-src/oneDNN
+Home: https://github.com/uxlfoundation/oneDNN
 
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
 
-oneAPI Deep Neural Network Library (oneDNN) is an open-source
-cross-platform performance library of basic building blocks for deep
-learning applications.
+oneDNN is an open-source, cross-platform library of optimized deep
+learning operations for CPUs and GPUs. It provides highly optimized
+implementations of matrix multiplication, convolution, attention,
+normalization, and other operations, and is the acceleration layer
+behind PyTorch, TensorFlow, OpenVINO, and many other AI frameworks.
 
 oneDNN is intended for deep learning applications and framework
-developers interested in improving application performance.
-Deep learning practitioners should use one of the applications
-enabled with oneDNN.
+developers interested in improving application performance on CPUs
+and GPUs. Deep learning practitioners should use one of the
+applications enabled with oneDNN.
 
 In this package oneDNN is built with the Threadpool CPU runtime.
 oneDNN requires the user to implement a Threadpool interface to enable
 the library to perform computations using multiple threads.
 
 
-For more information please read oneDNN developer guide:
-https://oneapi-src.github.io/oneDNN/
+For more information visit oneDNN Github:
+https://github.com/uxlfoundation/oneDNN
 
 About onednn-dpcpp
 ------------------
 
-Home: https://github.com/oneapi-src/oneDNN
+Home: https://github.com/uxlfoundation/oneDNN
 
 Package license: Apache-2.0
 
 Summary: oneAPI Deep Neural Network Library (oneDNN)
 
-oneAPI Deep Neural Network Library (oneDNN) is an open-source
-cross-platform performance library of basic building blocks for deep
-learning applications.
+oneDNN is an open-source, cross-platform library of optimized deep
+learning operations for CPUs and GPUs. It provides highly optimized
+implementations of matrix multiplication, convolution, attention,
+normalization, and other operations, and is the acceleration layer
+behind PyTorch, TensorFlow, OpenVINO, and many other AI frameworks.
 
 oneDNN is intended for deep learning applications and framework
-developers interested in improving application performance.
-Deep learning practitioners should use one of the applications
-enabled with oneDNN.
+developers interested in improving application performance on CPUs
+and GPUs. Deep learning practitioners should use one of the
+applications enabled with oneDNN.
 
 In this package oneDNN is built with the DPC++ CPU and GPU runtimes.
 
-For more information please read oneDNN developer guide:
-https://oneapi-src.github.io/oneDNN/
+For more information visit oneDNN Github:
+https://github.com/uxlfoundation/oneDNN
 
 Current build status
 ====================
