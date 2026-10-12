@@ -14,6 +14,8 @@ if [%dnnl_cpu_runtime%]==[dpcpp] (
     set TBBROOT=%LIBRARY_PREFIX%
     set DNNL_CPU_RUNTIME=DPCPP
     set DNNL_GPU_RUNTIME=DPCPP
+    rem Suppress spurious deprecation warnings from SYCL headers that cause build timeouts
+    set "CXXFLAGS=%CXXFLAGS% -Wno-deprecated-declarations"
     )
 
 cmake -GNinja %CMAKE_ARGS% ^
