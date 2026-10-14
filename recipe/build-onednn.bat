@@ -26,6 +26,13 @@ cmake -GNinja %CMAKE_ARGS% ^
 if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
+rem oneAPI DPC++ Compiler does not see CPU devices unless OpenCL vendor is
+rem registered in registry
+rem https://github.com/conda-forge/intel-compiler-repack-feedstock/issues/93
+if [%DNNL_GPU_RUNTIME%]==[DPCPP] if defined CI (
+    reg add HKLM\SOFTWARE\Khronos\OpenCL\Vendors /v "%LIBRARY_BIN%\intel-ocl-cpu\intelocl64.dll" /t REG_DWORD /d 0 /f /reg:64
+    if errorlevel 1 exit 1
+    )
 :: GPU tests are skipped due to lack of GPU installed on the test systems
 :: Gtests are sufficient to make sure the library is built correctly
 ctest --output-on-failure -E "(gpu|benchdnn)"

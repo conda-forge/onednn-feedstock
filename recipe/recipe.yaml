@@ -29,7 +29,10 @@ outputs:
       version: ${{ version }}
     build:
       string: ${{ dnnl_cpu_runtime }}_h${{ hash }}_${{ build }}
-      script: build-onednn
+      script:
+        file: build-onednn
+        env:
+          CI: ${{ env.get("CI", default="") }}
     requirements:
       build:
         - cmake
