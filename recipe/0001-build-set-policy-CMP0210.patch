@@ -1,0 +1,31 @@
+From b53f76fdf7f0c7e41a6ba2392aef59be80b72c86 Mon Sep 17 00:00:00 2001
+From: Vadim Pirogov <vadim.o.pirogov@intel.com>
+Date: Wed, 14 Oct 2026 10:14:44 -0700
+Subject: [PATCH 1/2] build: set policy CMP0210
+
+With OLD behavior CMake does not pass CMAKE_CXX_LINK_FLAGS when
+building DLLs. This results in missing -fsycl flag during linking
+and broken SYCL kernels.
+---
+ CMakeLists.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 90eb2b4ec7..48601cbe37 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -37,6 +37,11 @@ if(POLICY CMP0146)
+     cmake_policy(SET CMP0146 OLD)
+ endif()
+ 
++# CMake 4.3: CMAKE_<LANG>_LINK_FLAGS adds link flags to all target types
++if(POLICY CMP0210)
++    cmake_policy(SET CMP0210 NEW)
++endif()
++
+ if("${CMAKE_BUILD_TYPE}" STREQUAL "")
+     message(STATUS "CMAKE_BUILD_TYPE is unset, defaulting to Release")
+     set(CMAKE_BUILD_TYPE "Release" CACHE STRING
+-- 
+2.43.0
+

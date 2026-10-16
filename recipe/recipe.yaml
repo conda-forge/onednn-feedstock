@@ -1,7 +1,7 @@
 context:
   name: oneDNN
   version: "3.13.4"
-  build: 1
+  build: 2
   desc_omp: In this package oneDNN is built with the OpenMP CPU runtime.
   desc_tbb: In this package oneDNN is built with the TBB CPU runtime.
   desc_threadpool: |
@@ -17,6 +17,9 @@ recipe:
 source:
   url: https://github.com/uxlfoundation/${{ name }}/archive/v${{ version }}.tar.gz
   sha256: 1e9a4d8dbca13260344931540ad6f0f67dad781d6ca5b75d942fbf6fc3397696
+  patches:
+    - 0001-build-set-policy-CMP0210.patch
+    - 0002-build-changed-link-to-Qoption-link.patch
 
 build:
   number: ${{ build }}
@@ -29,7 +32,10 @@ outputs:
       version: ${{ version }}
     build:
       string: ${{ dnnl_cpu_runtime }}_h${{ hash }}_${{ build }}
-      script: build-onednn
+      script:
+        file: build-onednn
+        env:
+          CI: ${{ env.get("CI", default="") }}
     requirements:
       build:
         - cmake
