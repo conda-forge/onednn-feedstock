@@ -1,8 +1,5 @@
 @echo on
 
-:: Temp solution to check DPCPP env
-set SYCL_PI_TRACE=1
-
 md "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 set CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%
@@ -17,10 +14,8 @@ if [%dnnl_cpu_runtime%]==[dpcpp] (
     set TBBROOT=%LIBRARY_PREFIX%
     set DNNL_CPU_RUNTIME=DPCPP
     set DNNL_GPU_RUNTIME=DPCPP
-    :: A workaround for the dpcpp compiler environment issue:
-    :: https://github.com/conda-forge/intel-compiler-repack-feedstock/pull/25
-    set "LIB=%BUILD_PREFIX%\Library\lib;%LIB%"
-    set "INCLUDE=%BUILD_PREFIX%\include;%INCLUDE%"
+    rem Suppress spurious deprecation warnings from SYCL headers that cause build timeouts
+    set "CXXFLAGS=%CXXFLAGS% -Wno-deprecated-declarations"
     )
 
 cmake -GNinja %CMAKE_ARGS% ^
@@ -31,10 +26,15 @@ cmake -GNinja %CMAKE_ARGS% ^
 if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
+rem oneAPI DPC++ Compiler does not see CPU devices unless OpenCL vendor is
+rem registered in registry
+rem https://github.com/conda-forge/intel-compiler-repack-feedstock/issues/93
+if [%DNNL_GPU_RUNTIME%]==[DPCPP] if defined CI (
+    reg add HKLM\SOFTWARE\Khronos\OpenCL\Vendors /v "%LIBRARY_BIN%\intel-ocl-cpu\intelocl64.dll" /t REG_DWORD /d 0 /f /reg:64
+    if errorlevel 1 exit 1
+    )
 :: GPU tests are skipped due to lack of GPU installed on the test systems
 :: Gtests are sufficient to make sure the library is built correctly
-:: XXX: Exclude test_graph_unit_dnnl_mqa_decomp_usm_cpu for v3.5.3 to unblock
-:: updating oneDNN. Remove this workaround for the next update.
-ctest --output-on-failure -E "(gpu|benchdnn|test_graph_unit_dnnl_mqa_decomp_usm_cpu)"
+ctest --output-on-failure -E "(gpu|benchdnn)"
 if errorlevel 1 exit 1
 popd

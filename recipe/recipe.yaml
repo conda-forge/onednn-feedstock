@@ -1,7 +1,7 @@
 context:
   name: oneDNN
   version: "3.14"
-  build: 0
+  build: 1
   desc_omp: In this package oneDNN is built with the OpenMP CPU runtime.
   desc_tbb: In this package oneDNN is built with the TBB CPU runtime.
   desc_threadpool: |
@@ -29,7 +29,10 @@ outputs:
       version: ${{ version }}
     build:
       string: ${{ dnnl_cpu_runtime }}_h${{ hash }}_${{ build }}
-      script: build-onednn
+      script:
+        file: build-onednn
+        env:
+          CI: ${{ env.get("CI", default="") }}
     requirements:
       build:
         - cmake
